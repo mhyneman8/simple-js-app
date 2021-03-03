@@ -6,14 +6,21 @@ let pokemonList = [
 ];
 
 // prints list of pokemon in pokemonList
-for (let i = 0; i < pokemonList.length ; i++) {
-  document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m)");
+//for (let i = 0; i < pokemonList.length ; i++) {
+  //document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m)");
 
   // prints when pokemon is over 0.6 m
-  if (pokemonList[i].height > 0.6) {
+  //if (pokemonList[i].height > 0.6) {
+  //  document.write(" - Wow, that's big!");
+  //}
+  // breaks line after each item
+  //document.write('<br>');
+//}
+
+// forEach loop replaces for loop. "cleans" it
+pokemonList.forEach(function(pokemon) {
+  document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>");
+  if (pokemonList.height > 0.6) {
     document.write(" - Wow, that's big!");
   }
-  // breaks line after each item
-  document.write('<br>');
-
-}
+});
