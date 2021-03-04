@@ -1,9 +1,45 @@
-let pokemonList = [
-  {name: 'Squirtle', height: 0.5, type: ['Monster', 'Water'], hp: 44},
-  {name: 'Charmander', height: 0.6, type: ['Monster', 'Dragon'], hp: 39},
-  {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Monster'], hp: 45},
-  {name: 'Pikachu', height: 0.4, type: ['Electric', 'Fairy'], hp: 35}
-];
+//const pokemonRepository =
+(function() {
+
+  let pokemonList = [
+    {name: 'Squirtle', height: 0.5, type: ['Monster', 'Water'], hp: 44},
+    {name: 'Charmander', height: 0.6, type: ['Monster', 'Dragon'], hp: 39},
+    {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Monster'], hp: 45},
+    {name: 'Pikachu', height: 0.4, type: ['Electric', 'Fairy'], hp: 35}
+  ];
+  console.log(pokemonList)
+})();
+
+
+
+
+
+
+
+
+//  pokemonList.forEach(function(pokemon) {
+  //  document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>" );
+    //if (pokemon.height > 0.6) {
+     //document.write(" - Wow, that's big! <br>");
+//}
+//});
+
+
+//  function add(pokemon) {
+    //pokemonList.push(pokemon);
+  //}
+
+  //function getAll() {
+    //return pokemonList;
+  //}
+
+//return {
+//  add: add,
+//  getAll: getAll
+//};
+//})();
+//console.log(pokemonRepository.getAll);
+
 
 // prints list of pokemon in pokemonList
 //for (let i = 0; i < pokemonList.length ; i++) {
@@ -18,9 +54,9 @@ let pokemonList = [
 //}
 
 // forEach loop replaces for loop. "cleans" it
-pokemonList.forEach(function(pokemon) {
-  document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>");
-  if (pokemonList.height > 0.6) {
-    document.write(" - Wow, that's big!");
-  }
-});
+//pokemonRepository.forEach(function(pokemon) {
+  //document.write(pokemonRepository.getAll + " height: " + pokemon.height + " m" + "<br>");
+  //if (pokemon.height > 0.6) {
+    //document.write(" - Wow, that's big!");
+//  }
+//});
