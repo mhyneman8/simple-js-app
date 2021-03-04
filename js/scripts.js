@@ -1,5 +1,4 @@
-//const pokemonRepository =
-(function() {
+const pokemonRepository = (function() {
 
   let pokemonList = [
     {name: 'Squirtle', height: 0.5, type: ['Monster', 'Water'], hp: 44},
@@ -7,11 +6,23 @@
     {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Monster'], hp: 45},
     {name: 'Pikachu', height: 0.4, type: ['Electric', 'Fairy'], hp: 35}
   ];
-  console.log(pokemonList)
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
 })();
 
 
-
+document.write(pokemonRepository.getAll());
 
 
 
