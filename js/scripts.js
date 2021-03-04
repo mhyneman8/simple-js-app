@@ -9,6 +9,7 @@ const pokemonRepository = (function() {
 
   function add(pokemon) {
     pokemonList.push(pokemon);
+    document.write(pokemonList);
   }
 
   function getAll() {
@@ -21,53 +22,12 @@ const pokemonRepository = (function() {
   };
 })();
 
+pokemonRepository.add({name: pichu, height: 0.4, type: "electric"});
 
-document.write(pokemonRepository.getAll());
-
-
-
-
-
-//  pokemonList.forEach(function(pokemon) {
-  //  document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>" );
-    //if (pokemon.height > 0.6) {
-     //document.write(" - Wow, that's big! <br>");
-//}
-//});
-
-
-//  function add(pokemon) {
-    //pokemonList.push(pokemon);
-  //}
-
-  //function getAll() {
-    //return pokemonList;
-  //}
-
-//return {
-//  add: add,
-//  getAll: getAll
-//};
-//})();
-//console.log(pokemonRepository.getAll);
-
-
-// prints list of pokemon in pokemonList
-//for (let i = 0; i < pokemonList.length ; i++) {
-  //document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m)");
-
-  // prints when pokemon is over 0.6 m
-  //if (pokemonList[i].height > 0.6) {
-  //  document.write(" - Wow, that's big!");
-  //}
-  // breaks line after each item
-  //document.write('<br>');
-//}
-
-// forEach loop replaces for loop. "cleans" it
-//pokemonRepository.forEach(function(pokemon) {
-  //document.write(pokemonRepository.getAll + " height: " + pokemon.height + " m" + "<br>");
-  //if (pokemon.height > 0.6) {
-    //document.write(" - Wow, that's big!");
-//  }
-//});
+// gets list of pokemon
+pokemonRepository.getAll().forEach(function(pokemon) {
+    document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>" );
+    if (pokemon.height > 0.6) {
+     document.write(" - Wow, that's big! <br>");
+}
+});
