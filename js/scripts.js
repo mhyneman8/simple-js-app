@@ -21,7 +21,13 @@ const pokemonRepo = (function() {
       return pokemonList;
     }
   };
+//  filter(arr, query) {
+  //  return arr.filter(funcion(el))
+    //  return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+//  };
 })();
+
+//console.log(pokemonRepo.filter(pokemonRepo, 'grass'));
 
 // adds pichu to pokemonList
 pokemonRepo.add({name: 'Pichu', height: 0.4, type: ["electric"]});
