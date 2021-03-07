@@ -7,35 +7,77 @@ const pokemonRepo = (function() {
     {name: 'Pikachu', height: 0.4, type: ['Electric', 'Fairy'], hp: 35}
   ];
 
-  return {
-    // add a pokemon, as long as it's an object
-    add: function(pokemon) {
-      if (typeof(pokemon) === 'object' && typeof(pokemon) !== null) {
-        pokemonList.push(pokemon);
-      } else {
-        console.log('you need an object');
-      }
-    },
-    // retuns list of all pokemonList array
-    getAll: function() {
-      return pokemonList;
+  // che cks for specific objects and pushes new pokemon into list
+  function add(pokemon) {
+    if (
+      typeof pokemon === 'object' &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "type" in pokemon &&
+      "hp" in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      console.error("pokemon is not correct")
     }
-  };
-//  filter(arr, query) {
-  //  return arr.filter(funcion(el))
-    //  return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
-//  };
+  }
+
+//returns all pokemon
+function getAll() {
+  return pokemonList;
+}
+
+// filters pokemon by searched name
+function find(queryName) {
+  let pokemonMatch = pokemonList.filter(pokemon => pokemon.name === queryName);
+  return pokemonMatch;
+}
+
+function showDetails(pokemon) {
+  console.log(pokemon);
+}
+
+function addListItem(pokemon) {
+  // selects the pokemon-list class
+  let pokeList = document.querySelector('.pokemon-list');
+  // creates li in ul from index.html
+  let listPokemon = document.createElement('li');
+  let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    //adds css class
+    button.classList.add('button-class');
+    listPokemon.appendChild(button);
+    pokeList.appendChild(listPokemon);
+
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    });
+    }
+
+
+return {
+  add: add,
+  getAll: getAll,
+  addListItem: addListItem
+};
+
 })();
 
 //console.log(pokemonRepo.filter(pokemonRepo, 'grass'));
 
 // adds pichu to pokemonList
-pokemonRepo.add({name: 'Pichu', height: 0.4, type: ["electric"]});
+pokemonRepo.addListItem({name: 'Pichu', height: 0.4, type: ["electric"]});
 
 // gets list of pokemon
-pokemonRepo.getAll().forEach(function(pokemon) {
-    document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>" );
-    if (pokemon.height > 0.6) {
-     document.write(" - Wow, that's big! <br>");
-}
+console.log(pokemonRepo.getAll());
+
+pokemonRepo.getAll().forEach(function (pokemon) {
+  pokemonRepo.addListItem(pokemon);
 });
+
+
+
+
+//document.write(pokemon.name + " height: " + pokemon.height + " m" + "<br>" );
+//if (pokemon.height > 0.6) {
+ //document.write(" - Wow, that's big! <br>");
