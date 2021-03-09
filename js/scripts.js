@@ -1,20 +1,15 @@
 const pokemonRepo = (function() {
 
-  let pokemonList =
-    [{name: 'Squirtle', height: 0.5, type: ['Water'], hp: 44},
-    {name: 'Charmander', height: 0.6, type: ['Fire'], hp: 39},
-    {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Monster'], hp: 45},
-    {name: 'Pikachu', height: 0.4, type: ['Electric', 'Fairy'], hp: 35}
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  // che cks for specific objects and pushes new pokemon into list
+  // checks for specific objects and pushes new pokemon into list
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
       "name" in pokemon &&
       "height" in pokemon &&
-      "type" in pokemon &&
-      "hp" in pokemon
+      "type" in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
@@ -33,13 +28,9 @@ function find(queryName) {
   return pokemonMatch;
 }
 
-function showDetails(pokemon) {
-  console.log(pokemon);
-}
-
 function addListItem(pokemon) {
   // selects the pokemon-list class
-  let pokeList = document.querySelector('.pokemon-list');
+  let pokemonList = document.querySelector('.pokemon-list');
   // creates li in ul from index.html
   let listPokemon = document.createElement('li');
   let button = document.createElement('button');
@@ -47,32 +38,73 @@ function addListItem(pokemon) {
     //adds css class
     button.classList.add('button-class');
     listPokemon.appendChild(button);
-    pokeList.appendChild(listPokemon);
+    pokemonList.appendChild(listPokemon);
 
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(event) {
       showDetails(pokemon);
     });
     }
+  // loads pokemon list from api
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          height: item.height,
+          type: item.type,
+          detailsUrl: item.url
 
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+  // gets details from url from api
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      //add details to the item
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function (e) {
+    console.error(e);
+  });
+  }
+
+function showDetails(pokemon) {
+  pokemonRepo.loadDetails(pokemon).then (function () {
+    console.log(pokemon);
+  });
+}
 
 return {
   add: add,
   getAll: getAll,
-  addListItem: addListItem
+  addListItem: addListItem,
+  loadList: loadList,
+  loadDetails: loadDetails,
+  showDetails: showDetails
 };
-
 })();
 
-//console.log(pokemonRepo.filter(pokemonRepo, 'grass'));
-
 // adds pichu to pokemonList
-pokemonRepo.addListItem({name: 'Pichu', height: 0.4, type: ["electric"]});
+//pokemonRepo.addListItem({name: 'Pichu', height: 0.4, type: ["electric"]});
 
 // gets list of pokemon
 console.log(pokemonRepo.getAll());
 
-pokemonRepo.getAll().forEach(function (pokemon) {
-  pokemonRepo.addListItem(pokemon);
+//loads pokemon from api then add them to the pokemonList
+pokemonRepo.loadList().then(function() {
+  pokemonRepo.getAll().forEach(function (pokemon) {
+    pokemonRepo.addListItem(pokemon);
+  });
 });
 
 
