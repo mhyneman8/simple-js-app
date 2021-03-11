@@ -3,15 +3,33 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Simple JS App</title>
+    <title>Pokedex App</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
   </head>
+
   <body>
+    <header>
+      <div class="">
+        <img src="img/pokemon.png" class="logo" alt="Pokemon Logo">
+      </div>
+    </header>
     <div class="pokedex">
-      <h1>Pokedex</h1>
+      <div class="pokedex-head">
+        <h1>Pokedex
+        <button class="button-search"><img src="img/search.png" alt="search icon" class="search"></button>
+        <input type="text" name="search_input" class="search_input" value="" placeholder="Search for...">
+        </h1>
+      </div>
+
       <ul class="pokemon-list"></ul>
     </div> <!-- end pokedex -->
 
+    <div id="content">
+      <div id="loading"></div>
+      <div id="isItLoaded"></div>
+    </div> <!-- end content -->
     <!-- lets older browsers use promises -->
     <script src="js/promise-polyfill.js"></script>
 

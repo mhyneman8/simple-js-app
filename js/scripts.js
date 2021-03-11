@@ -23,9 +23,18 @@ function getAll() {
 }
 
 // filters pokemon by searched name
+
 function find(queryName) {
-  let pokemonMatch = pokemonList.filter(pokemon => pokemon.name === queryName);
-  return pokemonMatch;
+  button.classList.add('button-search');
+  button.addEventListener('click', function(event) {
+    let element = document.querySelector('.search_input');
+    //element.classList.contains('search_input');
+    element.classList.toggle('search_input');
+  });
+
+  //   let pokemonMatch = pokemonList.filter(pokemon => pokemon.name === queryName);
+    // return pokemonMatch;
+   //});
 }
 
 function addListItem(pokemon) {
@@ -46,6 +55,7 @@ function addListItem(pokemon) {
     }
   // loads pokemon list from api
   function loadList() {
+    //return showLoadingMessage();
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
@@ -55,7 +65,6 @@ function addListItem(pokemon) {
           height: item.height,
           type: item.type,
           detailsUrl: item.url
-
         };
         add(pokemon);
       });
@@ -65,6 +74,7 @@ function addListItem(pokemon) {
   }
   // gets details from url from api
   function loadDetails(item) {
+    return showLoadingMessage();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
