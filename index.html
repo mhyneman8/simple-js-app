@@ -16,20 +16,33 @@
       </div>
     </header>
     <div class="pokedex">
+      <div class="header-powerbtn"></div>
       <div class="pokedex-head">
-        <h1>Pokedex
-        <button class="button-search"><img src="img/search.png" alt="search icon" class="search"></button>
-        <input type="text" name="search_input" class="search_input" value="" placeholder="Search for...">
+        <!-- <button id="button-search" class="button-search">
+          <img src="img/search.png" alt="search icon" class="search">
+        </button>
+        <div id="search-container">
+          <div class="search_input">
+            <input type="text" name="search_input" class="search_input" value="" placeholder="Search for...">
+          </div> --> <!-- end of search_input -->
+    <!--    </div> --> <!-- end of search-container -->
+
+        <h1>
+          Pokedex
         </h1>
       </div>
+    <div class="container">
+      <div class="pokedex-window">
+        <div class="pokedex-window-scrollbox" id="pokedex">
 
-      <ul class="pokemon-list"></ul>
+          <ul class="pokemon-list"></ul>
+          <div id="overlay"></div>
+        </div>
+      </div>
+    </div>
+
     </div> <!-- end pokedex -->
 
-    <div id="content">
-      <div id="loading"></div>
-      <div id="isItLoaded"></div>
-    </div> <!-- end content -->
     <!-- lets older browsers use promises -->
     <script src="js/promise-polyfill.js"></script>
 
