@@ -59,6 +59,38 @@ function showDetails(pokemon) {
     createType.classList.add('h2');
     createType.innerHTML = "Type: " + pokemon.types;
 
+    let types = pokemon.types[0];
+    console.log(types);
+
+    switch (types) {
+      case "Grass":
+        types.classList.add('green');
+        break;
+      case "Electric":
+        types.classList.add('yellow');
+        break;
+      case "Water":
+        types.classList.add('blue');
+        break;
+    }
+
+    // how to change background based on types
+    //  function changeBackground() {
+      //  return new Promise((resolve, reject) => {
+        //  if (createType.innerHTML === "grass") {
+          //  resolve({createDiv.addClass('green')});
+          //} else if (createType.innerHTML === 'electric') {
+          //  resolve({createDiv.addClass('yellow')});
+        //  } else if (createType.innerHTML === 'fire') {
+          //  resolve({createDiv.addClass('red')});
+          //} else {
+          //  resolve(console.log('nope'));
+          //}
+      //  })
+      //}
+
+
+
     //appends all created elements
     createDiv.appendChild(createButton);
     createDiv.appendChild(createImg);
