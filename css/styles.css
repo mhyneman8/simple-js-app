@@ -129,6 +129,10 @@ h2 {
   background: #555;
 }
 
+.modal {
+  width: 60%;
+}
+
 .modal-foreground.visible {
   overflow: auto;
   position: absolute;
@@ -165,10 +169,7 @@ h2 {
 }
 
 .pokemon-img {
-  width: 250px;
-  height: 250px;
-  margin-top: 50px;
-  margin-bottom: 0;
+  text-align: center;
 }
 
 .pokedex-window {
@@ -264,7 +265,6 @@ header {
 
 ul {
   list-style-type: none;
-
 }
 
 .pokedex {
