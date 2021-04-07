@@ -17,7 +17,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <img src="img/pokemon.png" class="logo" alt="Pokemon Logo">
+
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="#">Pokedex <span class="sr-only">(current)</span></a>
@@ -32,35 +32,29 @@
         </div>
       </nav>
       <div class="">
-
+        <img src="img/pokemon.png" class="logo" alt="Pokemon Logo">
       </div>
 
     </header>
+
     <div class="pokedex">
       <div class="header-powerbtn"></div>
       <div class="pokedex-head">
-        <!-- <button id="button-search" class="button-search">
-          <img src="img/search.png" alt="search icon" class="search">
-        </button>
-        <div id="search-container">
-          <div class="search_input">
-            <input type="text" name="search_input" class="search_input" value="" placeholder="Search for...">
-          </div> --> <!-- end of search_input -->
-    <!--    </div> --> <!-- end of search-container -->
-
         <h1>
           Pokedex
         </h1>
+        <form class="form-inline">
+          <label for="search-bar">Search Pokedex</label>
+          <input class="form-control mr-sm-2" id="search-bar" type="search" name="search" value="" aria-label="search">
+        </form>
       </div>
-    <div class="container">
       <div class="pokedex-window">
         <div class="pokedex-window-scrollbox" id="pokedex">
 
           <ul class="pokemon-list list-group"></ul>
-          <!-- <div id="overlay"></div> -->
+          <div id="overlay"></div>
         </div>
       </div>
-    </div>
 
     </div> <!-- end pokedex -->
 

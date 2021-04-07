@@ -281,36 +281,3 @@ ul {
   color: black;
   text-align: center;
 }
-
-.search {
-  max-width: 15px;
-}
-
-.search_input {
-
-}
-
-#search-container {
-  display: none;
-
-}
-
-.search-close {
-
-}
-
-#search-container.is-visible {
-  display: inline;
-  background-color: white;
-  color: black;
-  padding: 1%;
-  right: 0;
-  z-index: 100;
-}
-
-#button-search {
-  background-color: #d3d3d3;
-  color: inherit;
-  margin-right: 3px;
-  float: right;
-}

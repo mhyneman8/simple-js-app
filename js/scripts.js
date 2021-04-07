@@ -2,6 +2,7 @@ const pokemonRepo = (function() {
 
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  let searchInput = $('#search-bar');
 
   // Capitalize pokemon
   function cap(name) {
@@ -258,6 +259,22 @@ function addListItem(pokemon) {
       console.error(e);
     });
   }
+
+
+    // Search bar listener
+  searchInput.addEventListener('input', function () {
+    let pokemonList = $('.list-group-item');
+    let filterValue = searchInput.value.toUpperCase();
+
+    pokemonList.forEach(function(pokemon){
+      console.log(pokemon.innerText);
+      if(pokemon.innerText.toUpperCase().indexOf(filterValue) > -1) {
+        pokemon.style.display = '';
+      }else {
+        pokemon.style.display = 'none';
+      }
+    })
+  });
 
 // allows use outside of IIFE
 return {
