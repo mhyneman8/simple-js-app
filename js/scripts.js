@@ -26,7 +26,7 @@ function getAll() {
 $(document).ready(function () {
   $('#modal').on('show.bs.modal', function () {
     var mod = $('.modal');
-    $('.pokedex-window-scrollbox').html(mod);
+    $('.pokedex-window-scrollbox').append(mod);
   });
 })
 
@@ -57,17 +57,11 @@ function showDetails(pokemon) {
     let types = pokemon.types[0];
     console.log(types);
 
-    switch (types) {
-      case "Grass":
-        modal.classList.add('.bg-primary');
-        break;
-      case "Electric":
-        pokedex-window.classList.add('yellow');
-        break;
-      case "Water":
-        types.classList.add('blue');
-        break;
-    }
+    // $('#modal').data('bs.modal').$backdrop.css('background-color', 'orange');
+
+    // $('#modal').addClass('${types.toLowerCase()}-bg');
+
+
 
     modalTitle.append(createName);
     modalBody.append(createImg);
@@ -76,85 +70,6 @@ function showDetails(pokemon) {
     modalBody.append(createAbility);
   });
 }
-
-
-
-  //create modal and content
-  // function container () {
-  //   let createDiv = document.querySelector('.list-group');
-  //   createDiv.classList.add('modal-foreground');
-
-    // let createButton = document.createElement('button');
-    // createButton.classList.add('close');
-    // createButton.innerText = 'X';
-    // createButton.addEventListener('click', hide);
-
-    // let createImg = document.createElement('img');
-    // createImg.classList.add('pokemon-img');
-    // createImg.src = pokemon.imageUrl;
-    // createImg.alt = "Image of " + pokemon.name;
-
-    // let createName = document.createElement('h1');
-    // createName.classList.add('h1');
-    // createName.innerHTML = cap(pokemon.name);
-
-    // let createHeight = document.createElement('h2');
-    // createHeight.classList.add('h2');
-    // createHeight.innerHTML = "Height: " + pokemon.height*10 + "cm";
-
-    // let createAbility = document.createElement('h2');
-    // createAbility.classList.add('h2');
-    // createAbility.innerHTML = "Ability: " + pokemon.abilities;
-
-    // let createType = document.createElement('h2');
-    // createType.classList.add('h2');
-    // createType.innerHTML = "Type: " + pokemon.types;
-
-
-
-    // how to change background based on types
-    //  function changeBackground() {
-      //  return new Promise((resolve, reject) => {
-        //  if (createType.innerHTML === "grass") {
-          //  resolve({createDiv.addClass('green')});
-          //} else if (createType.innerHTML === 'electric') {
-          //  resolve({createDiv.addClass('yellow')});
-        //  } else if (createType.innerHTML === 'fire') {
-          //  resolve({createDiv.addClass('red')});
-          //} else {
-          //  resolve(console.log('nope'));
-          //}
-      //  })
-      //}
-
-
-
-    //appends all created elements
-  //   createDiv.appendChild(createButton);
-  //   createDiv.appendChild(createImg);
-  //   createDiv.appendChild(createName);
-  //   createDiv.appendChild(createHeight);
-  //   createDiv.appendChild(createAbility);
-  //   createDiv.appendChild(createType);
-  //   modalContainer.prepend(createDiv);
-  //
-  //   createDiv.classList.add('visible');
-  // }
-
-  // function hide() {
-  //   let x = modalContainer.querySelector('div');
-  //   x.classList.remove('visible');
-  // }
-
-//   window.addEventListener('keydown', (event) => {
-//     let y = modalContainer.querySelector('div');
-//     if (event.key === 'Escape' && y.classList.contains('visible')) {
-//       hide();
-//     }
-//   })
-//   container();
-//   });
-// }
 
 // loading page
 function showLoading() {

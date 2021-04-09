@@ -25,39 +25,47 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
           </ul>
         </div>
+        <div class="headImg">
+          <img src="img/pokemon.png" class="logo" alt="Pokemon Logo">
+        </div>
       </nav>
-      <div class="">
-        <img src="img/pokemon.png" class="logo" alt="Pokemon Logo">
-      </div>
+
 
     </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col"></div>
+        <div class="pokedex col-8">
+          <div class="header-powerbtn"></div>
+          <div class="pokedex-head">
+            <h1 class="display-4">
+              Pokedex
+            </h1>
+            <div class="row">
+              <div class="col-4"></div>
+            <form class="form-horizontal">
+              <div class="control-group form-inline text-right">
+                <label class="control-label col-1" for="search-bar">Search</label>
+                <div class="controls">
+                  <input class="form-control mr-sm-2" id="search-bar" type="search" name="search" value="" aria-label="search">
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+          <div class="pokedex-window">
+            <div class="pokedex-window-scrollbox" id="pokedex">
 
-    <div class="pokedex">
-      <div class="header-powerbtn"></div>
-      <div class="pokedex-head">
-        <h1>
-          Pokedex
-        </h1>
-        <form class="form-inline">
-          <label for="search-bar">Search Pokedex</label>
-          <input class="form-control mr-sm-2" id="search-bar" type="search" name="search" value="" aria-label="search">
-        </form>
-      </div>
-      <div class="pokedex-window">
-        <div class="pokedex-window-scrollbox" id="pokedex">
-
-          <ul class="pokemon-list list-group"></ul>
-          <div id="overlay"></div>
-        </div>
-      </div>
-
-    </div> <!-- end pokedex -->
-
+              <ul class="pokemon-list list-group"></ul>
+              <div id="overlay"></div>
+            </div>
+          </div>
+        </div> <!-- end pokedex -->
+      <div class="col"></div>
+    </div> <!-- end of row -->
+  </div> <!-- end of container -->
     <!-- Modal -->
     <div
       class="modal fade"
