@@ -2,7 +2,6 @@ const pokemonRepo = (function() {
 
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
-  let searchInput = $('#search-bar');
 
   // Capitalize pokemon
   function cap(name) {
@@ -23,6 +22,13 @@ const pokemonRepo = (function() {
 function getAll() {
   return pokemonList;
 }
+
+$(document).ready(function () {
+  $('#modal').on('show.bs.modal', function () {
+    var mod = $('.modal');
+    $('.pokedex-window-scrollbox').html(mod);
+  });
+})
 
 // display pokemon in modal
 function showDetails(pokemon) {
@@ -47,8 +53,21 @@ function showDetails(pokemon) {
 
     let createType = $('<h2>' + "Type: " + pokemon.types[0] + '</h2>');
 
-    // modalContainer.append(modalTitle);
-    // modalContainer.append(modalBody);
+    // switch to change background with type
+    let types = pokemon.types[0];
+    console.log(types);
+
+    switch (types) {
+      case "Grass":
+        modal.classList.add('.bg-primary');
+        break;
+      case "Electric":
+        pokedex-window.classList.add('yellow');
+        break;
+      case "Water":
+        types.classList.add('blue');
+        break;
+    }
 
     modalTitle.append(createName);
     modalBody.append(createImg);
@@ -57,6 +76,8 @@ function showDetails(pokemon) {
     modalBody.append(createAbility);
   });
 }
+
+
 
   //create modal and content
   // function container () {
@@ -89,21 +110,7 @@ function showDetails(pokemon) {
     // createType.classList.add('h2');
     // createType.innerHTML = "Type: " + pokemon.types;
 
-    //switch to change background with type
-    // let types = pokemon.types[0];
-    // console.log(types);
-    //
-    // switch (types) {
-    //   case "Grass":
-    //     types.classList.add('green');
-    //     break;
-    //   case "Electric":
-    //     types.classList.add('yellow');
-    //     break;
-    //   case "Water":
-    //     types.classList.add('blue');
-    //     break;
-    // }
+
 
     // how to change background based on types
     //  function changeBackground() {
@@ -164,7 +171,7 @@ function hideLoading() {
   //set timeout
   window.setTimeout(function () {
     node.parentElement.removeChild(node);
-  }, 300)
+  }, 500)
 }
 // display pokemon from webpage
 function addListItem(pokemon) {
@@ -193,15 +200,23 @@ function addListItem(pokemon) {
       showDetails(pokemon);
     });
     }
-    // fix later
+
     // search
-  //  function filter() {
-  //    let search = document.querySelector('#button-search');
-  //    search.addEventListener('click', function() {
-  //      let button = document.querySelector('#search-container')
-  //      button.classList.toggle('is-visible')
-//      })
-//    }
+    $(document).ready(function() {
+      $('#search-bar').on('keyup', function() {
+        var value = $(this)
+          .val()
+          .toLowerCase();
+        $('.pokemon-list *').filter(function() {
+          $(this).toggle(
+            $(this)
+              .text()
+              .toLowerCase()
+              .indexOf(value) > -1
+          );
+        });
+      });
+    });
 
     //power down
     function powerDown() {
@@ -260,21 +275,6 @@ function addListItem(pokemon) {
     });
   }
 
-
-    // Search bar listener
-  searchInput.addEventListener('input', function () {
-    let pokemonList = $('.list-group-item');
-    let filterValue = searchInput.value.toUpperCase();
-
-    pokemonList.forEach(function(pokemon){
-      console.log(pokemon.innerText);
-      if(pokemon.innerText.toUpperCase().indexOf(filterValue) > -1) {
-        pokemon.style.display = '';
-      }else {
-        pokemon.style.display = 'none';
-      }
-    })
-  });
 
 // allows use outside of IIFE
 return {
