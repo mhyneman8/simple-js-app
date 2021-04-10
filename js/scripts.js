@@ -72,9 +72,9 @@ function showDetails(pokemon) {
 // loading page
 function showLoading() {
   let pokemonList = $('.pokedex-window');
-  let newDiv = document.createElement('div');
-  newDiv.innerText = 'Loading List!';
-  newDiv.classList.add('msg-board');
+  let newDiv = $('<div></div>');
+  newDiv.text('Loading List!');
+  newDiv.addClass('msg-board');
   pokemonList.prepend(newDiv);
 }
 // hide loading page
@@ -94,7 +94,7 @@ function addListItem(pokemon) {
   // creates li in ul from index.html
   let listPokemon = $('<li class="list-group-item list-group-action"></li>');
 
-  let button = $('<button class="button"></button>');
+  let button = $('<button></button>');
     button.text(cap(pokemon.name));
     //adds css class
     button.addClass('btn');
