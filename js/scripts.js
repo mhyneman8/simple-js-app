@@ -131,13 +131,13 @@ function addListItem(pokemon) {
 
     //power down
     function powerDown() {
-      let powerButton = document.querySelector('.header-powerbtn');
-      powerButton.addEventListener('click', function() {
-        if(document.getElementById('overlay').style.display === 'none') {
+      let powerButton = $('.header-powerbtn');
+      powerButton.on('click', function() {
+        if($('#overlay')[0].style.display === 'none') {
           if (window.confirm('Are you sure you want to power down?')) {
-            document.getElementById('overlay').style.display = 'block';
+            $('#overlay')[0].style.display = 'block';
         }} else {
-            document.getElementById('overlay').style.display = 'none';
+            $('#overlay')[0].style.display = 'none';
         }
       })
     }
