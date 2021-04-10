@@ -10,11 +10,12 @@ const pokemonRepo = (function() {
 
   // add to pokedex
   function add(pokemon) {
-    if (typeof pokemon === 'object' &&
-        typeof pokemon !== null) {
+    if (typeof pokemon === 'object') {
       pokemonList.push(pokemon);
   } else {
-    console.log('you need an object');
+    /* eslint-disable no-console */
+    console.error('you need an object');
+    /* eslint-enable no-console */
   }
 }
 
@@ -33,10 +34,8 @@ $(document).ready(function () {
 // display pokemon in modal
 function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
-    let modalContainer = $('#pokedex');
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
-    let modalHeader = $('.modal-header');
 
     modalTitle.empty();
     modalBody.empty();
@@ -46,20 +45,19 @@ function showDetails(pokemon) {
 
     let createName = $('<h1>' + cap(pokemon.name) + '</h1>');
 
-    let createHeight = $('<h2>' + "Height: " + pokemon.height*10 + " cm" +'</h2>');
+    let createHeight = $('<h2>' + 'Height: ' + pokemon.height*10 + ' cm' +'</h2>');
 
 
-    let createAbility = $('<h2>' + "Ability: " + pokemon.abilities + '</h2>');
+    let createAbility = $('<h2>' + 'Ability: ' + pokemon.abilities + '</h2>');
 
-    let createType = $('<h2>' + "Type: " + pokemon.types[0] + '</h2>');
+    let createType = $('<h2>' + 'Type: ' + pokemon.types[0] + '</h2>');
 
     // switch to change background with type
     let types = pokemon.types[0];
-    console.log(types);
 
     // $('#modal').data('bs.modal').$backdrop.css('background-color', 'orange');
 
-    // $('#modal').addClass('${types.toLowerCase()}-bg');
+    $('#modal').addClass('${types.toLowerCase()}-bg');
 
 
 
@@ -73,7 +71,7 @@ function showDetails(pokemon) {
 
 // loading page
 function showLoading() {
-  let pokemonList = document.querySelector('.pokedex-window');
+  let pokemonList = $('.pokedex-window');
   let newDiv = document.createElement('div');
   newDiv.innerText = 'Loading List!';
   newDiv.classList.add('msg-board');
@@ -92,29 +90,27 @@ function hideLoading() {
 function addListItem(pokemon) {
 
   // selects the pokemon-list class
-  let pokemonList = document.querySelector('.list-group');
+  let pokemonList = $('.list-group');
   // creates li in ul from index.html
-  let listPokemon = document.createElement('li');
-  listPokemon.classList.add('list-group-item');
-  listPokemon.classList.add('list-group-action');
+  let listPokemon = $('<li class="list-group-item list-group-action"></li>');
 
-  let button = document.createElement('button');
-    button.innerText = cap(pokemon.name);
+  let button = $('<button class="button"></button>');
+    button.text(cap(pokemon.name));
     //adds css class
-    button.classList.add('btn');
-    button.classList.add('btn-secondary');
-    button.classList.add('btn-lg');
-    button.setAttribute('data-target', '#modal');
-    button.setAttribute('data-toggle', 'modal');
+    button.addClass('btn');
+    button.addClass('btn-secondary');
+    button.addClass('btn-lg');
+    button.attr('data-target', '#modal');
+    button.attr('data-toggle', 'modal');
 
     listPokemon.append(button);
     pokemonList.append(listPokemon);
 
 
-    button.addEventListener('click', function() {
+    button.on('click', function() {
       showDetails(pokemon);
     });
-    }
+  }
 
     // search
     $(document).ready(function() {
@@ -162,7 +158,9 @@ function addListItem(pokemon) {
         hideLoading();
       }).catch(function (e) {
       hideLoading();
+      /* eslint-disable no-console */
       console.error(e);
+      /* eslint-enable no-console */
     })
 }
   function loadDetails(item) {
@@ -177,16 +175,18 @@ function addListItem(pokemon) {
       item.types = details.types;
       item.abilities = [];
       details.abilities.forEach(function (itemAbility) {
-        item.abilities.push(" " + cap(itemAbility.ability.name));
+        item.abilities.push(' ' + cap(itemAbility.ability.name));
       })
       item.types = [];
       details.types.forEach(function(itemType){
-        item.types.push(" " + cap(itemType.type.name));
+        item.types.push(' ' + cap(itemType.type.name));
       })
     }).then (function () {
       hideLoading();
     }).catch(function (e) {
+      /* eslint-disable no-console */
       console.error(e);
+      /* eslint-enable no-console */
     });
   }
 
