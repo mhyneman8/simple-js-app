@@ -36,6 +36,7 @@ function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
+    let modalHead = $('.modal-header');
 
     modalTitle.empty();
     modalBody.empty();
@@ -43,10 +44,9 @@ function showDetails(pokemon) {
     let createImg = $('<img class="modal-img img-fluid">');
     createImg.attr('src', pokemon.imageUrl);
 
-    let createName = $('<h1>' + cap(pokemon.name) + '</h1>');
+    let createName = $('<h1 class="center">' + cap(pokemon.name) + '</h1>');
 
     let createHeight = $('<h2>' + 'Height: ' + pokemon.height*10 + ' cm' +'</h2>');
-
 
     let createAbility = $('<h2>' + 'Ability: ' + pokemon.abilities + '</h2>');
 
@@ -56,11 +56,17 @@ function showDetails(pokemon) {
     // switch to change background with type
     let types = pokemon.types[0];
 
-    // $('#modal').data('bs.modal').$backdrop.css('background-color', 'orange');
-    `$('#modal').addClass(`${types.toLowerCase()}-bg`);`
 
+
+    $(modalBody).addClass(`${types.toLowerCase()}-bg`);
+    $(modalHead).addClass(`${types.toLowerCase()}-bg`);
+
+    $('#close').on('click', function() {
+      $(modalHead).removeClass(`${types.toLowerCase()}-bg`);
+      $(modalBody).removeClass(`${types.toLowerCase()}-bg`);
+    });
     // modalBody.addClass('${types.toLowerCase()-bg}')
-
+    modalHead.append(modalTitle);
 
     modalTitle.append(createName);
     modalBody.append(createImg);
@@ -80,11 +86,9 @@ function showLoading() {
 }
 // hide loading page
 function hideLoading() {
-  let pokemonList = $('.pokedex-window');
-  let node = pokemonList.first();
   //set timeout
   window.setTimeout(function () {
-    node.remove(node);
+    $('.msg-board').remove();
   }, 500)
 }
 // display pokemon from webpage
