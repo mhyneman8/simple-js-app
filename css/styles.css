@@ -9,10 +9,11 @@
 }
 
 body {
+  position: absolute;
   background-color: var(--blue);
   color: #ffcb05;
-
   border: 10px solid var(--yellow);
+  width: 100%;
 
 }
 
@@ -41,6 +42,17 @@ h2 {
   margin-top: 15px;
   font-size: 20px;
   text-align: left;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.headImg {
+    width: 100%;
 }
 
 .modal-img {
@@ -96,28 +108,24 @@ h2 {
 }
 
 /* modal background color */
-.pokedex-window-scrollbox.grass-bg {
-  background-color: green;
+.fire-bg {
+  background-image: url("..//img/fire.png");
+  border: 10px solid var(--mustard);
 }
 
-.modal-foreground.red {
-  background-color: red;
+.psychic-bg {
+  background-image: url("..//img/psychic.png");
+  border: 10px solid var(--mustard);
 }
 
-.modal-backdrop {
-  background-color: green;
+.grass-bg {
+  background-image: url("..//img/grass.png");
+  border: 10px solid var(--mustard);
 }
 
-.yellow {
-  background-color: yellow;
-}
-
-.default {
-  background-color: grey;
-}
-
-.modal-backdrop {
-  background-color: red;
+.water-bg {
+  background-image: url("..//img/water.png");
+  border: 10px solid var(--mustard);
 }
 
 .form-inline {
@@ -140,7 +148,11 @@ h2 {
 }
 
 #search-bar {
-  margin-left: 55px;
+  margin-left: 40px;
+}
+
+.control-label {
+  margin-left: 15px;
 }
 
 .control-group.form-inline {
@@ -187,16 +199,12 @@ header {
   margin: 0 auto;
 }
 
-nav {
-  margin-bottom: 40px;
-}
-
 .logo {
   height: 100px;
   margin: 0 auto;
-  position: absolute;
-  right: 100px;
-  top: -25px;
+
+  text-align: center;
+  display: inline;
 }
 
 .form-control {
@@ -206,7 +214,6 @@ nav {
 
 ul {
   list-style-type: none;
-
 }
 
 .pokedex {
@@ -243,6 +250,7 @@ ul {
   width: 95%;
   height: 445px;
   margin-left: 5%;
+  margin-top: -5px;
   z-index: 2000;
 }
 

@@ -52,13 +52,14 @@ function showDetails(pokemon) {
 
     let createType = $('<h2>' + 'Type: ' + pokemon.types[0] + '</h2>');
 
+
     // switch to change background with type
     let types = pokemon.types[0];
 
     // $('#modal').data('bs.modal').$backdrop.css('background-color', 'orange');
+    `$('#modal').addClass(`${types.toLowerCase()}-bg`);`
 
-    $('#modal').addClass('${types.toLowerCase()}-bg');
-
+    // modalBody.addClass('${types.toLowerCase()-bg}')
 
 
     modalTitle.append(createName);
@@ -79,11 +80,11 @@ function showLoading() {
 }
 // hide loading page
 function hideLoading() {
-  let pokemonList = document.querySelector('.pokedex-window');
-  let node = pokemonList.firstElementChild;
+  let pokemonList = $('.pokedex-window');
+  let node = pokemonList.first();
   //set timeout
   window.setTimeout(function () {
-    node.parentElement.removeChild(node);
+    node.remove(node);
   }, 500)
 }
 // display pokemon from webpage
@@ -172,6 +173,7 @@ function addListItem(pokemon) {
       // details requested
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
+      item.base_stat = details.base_stat;
       item.types = details.types;
       item.abilities = [];
       details.abilities.forEach(function (itemAbility) {
