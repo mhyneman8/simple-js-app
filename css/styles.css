@@ -52,6 +52,12 @@ h2 {
   margin-bottom: 40px;
 }
 
+.search {
+  text-align: center;
+  display: inline-block;
+
+}
+
 .headImg {
     width: 100%;
 }
@@ -171,7 +177,10 @@ h2 {
 .form-inline {
   color: white;
   font-size: 20px;
+  text-align: center;
 }
+
+
 
 .pokedex-window {
   position: relative;
