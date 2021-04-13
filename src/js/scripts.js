@@ -56,8 +56,6 @@ function showDetails(pokemon) {
     // switch to change background with type
     let types = pokemon.types[0];
 
-
-
     $(modalBody).addClass(`${types.toLowerCase()}-bg`);
     $(modalHead).addClass(`${types.toLowerCase()}-bg`);
 
