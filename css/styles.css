@@ -28,12 +28,13 @@ a:hover {
 
 h1 {
   font-size: 35px;
+  font-weight: 800;
   text-align: center;
   background-color: inherit;
   color: white;
   margin: 0 auto;
   -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-width: 0.9px;
   border-bottom: 2px solid black;
   font-family: 'Rubik', sans-serif;
 }
@@ -55,8 +56,12 @@ h2 {
     width: 100%;
 }
 
+.modal-header {
+  display: inline-block;
+}
+
 .modal-img {
-  margin-bottom: 20px;
+  height: 126px;
 }
 
 .header-powerbtn {
@@ -108,24 +113,59 @@ h2 {
 }
 
 /* modal background color */
-.fire-bg {
+.fire-bg,
+.fighting-bg {
   background-image: url("..//img/fire.png");
-  border: 10px solid var(--mustard);
+  border: 15px solid var(--mustard);
 }
 
-.psychic-bg {
+.psychic-bg,
+.ghost-bg {
   background-image: url("..//img/psychic.png");
-  border: 10px solid var(--mustard);
+  border: 15px solid var(--mustard);
 }
 
-.grass-bg {
+.grass-bg,
+.bug-bg {
   background-image: url("..//img/grass.png");
-  border: 10px solid var(--mustard);
+  border: 15px solid var(--mustard);
 }
 
 .water-bg {
   background-image: url("..//img/water.png");
-  border: 10px solid var(--mustard);
+  border: 15px solid var(--mustard);
+}
+
+.normal-bg,
+.ground-bg {
+  background-image: url("..//img/colorless.png");
+  border: 15px solid var(--mustard);
+}
+
+.electric-bg {
+  background-image: url("..//img/electric.png");
+  border: 15px solid var(--mustard);
+}
+
+.fairy-bg {
+  background-image: url("..//img/fairy.png");
+  border: 15px solid var(--mustard);
+}
+
+.dragon-bg {
+  background-image: url("..//img/dragon.png");
+  border: 15px solid var(--mustard);
+}
+
+.ice-bg {
+  background-image: url("..//img/ice.png");
+  border: 15px solid var(--mustard);
+}
+
+.poison-bg,
+.rock-bg {
+  background-image: url("..//img/poison.png");
+  border: 15px solid var(--mustard);
 }
 
 .form-inline {
