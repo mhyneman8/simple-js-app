@@ -10,7 +10,7 @@ const pokemonRepo = (function() {
 
   // add to pokedex
   function add(pokemon) {
-    if (typeof pokemon === 'object') {
+    if (typeof pokemon === "object") {
       pokemonList.push(pokemon);
   } else {
     /* eslint-disable no-console */

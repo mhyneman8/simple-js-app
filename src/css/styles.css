@@ -27,7 +27,7 @@ a:hover {
 }
 
 h1 {
-  font-size: 35px;
+  font-size: 2.1875rem;
   font-weight: 800;
   text-align: center;
   background-color: inherit;
@@ -40,22 +40,14 @@ h1 {
 }
 
 h2 {
-  margin-top: 15px;
-  font-size: 20px;
+  margin-top: 0.9375rem;
+  font-size: 1.25rem;
   text-align: left;
 }
 
-.navbar {
-  position: relative;
-  min-height: 50px;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
 .search {
-  text-align: center;
-  display: inline-block;
-
+  text-align: left !important;
+  display: block;
 }
 
 .headImg {
@@ -67,16 +59,16 @@ h2 {
 }
 
 .modal-img {
-  height: 126px;
+  height: 7.875rem;
 }
 
 .header-powerbtn {
-  background: url("../img/power.png");
+  background: url("../src/img/power.png");
   background-size: 100% 100%;
   margin-bottom: 0;
-  width: 45px;
-  height: 45px;
-  margin: 25px;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  margin: 1.5625rem;
   transition: ease-in-out all .4s;
   cursor: pointer;
 }
@@ -101,7 +93,7 @@ h2 {
 }
 
 .modal-foreground.visible::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 
 }
 .modal-foreground.visible::-webkit-scrollbar-track {
@@ -111,8 +103,8 @@ h2 {
 }
 .modal-foreground.visible::-webkit-scrollbar-thumb {
   background: #888;
-  height: 20px;
-  border-radius: 10px;
+  height: 1.25rem;
+  border-radius: 0.625rem;
 }
 .modal-foreground.visible::-webkit-scrollbar-thumb:hover {
   background: #555;
@@ -176,7 +168,7 @@ h2 {
 
 .form-inline {
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   text-align: center;
 }
 
@@ -185,25 +177,25 @@ h2 {
   max-width: 800px;
   width: 100%;
   min-width: 300px;
-  height: 500px;
+  height: 31.25rem;
   background-color: #696666;
-  margin-bottom: 80px;
-  padding: 25px 15px 25px;
+  margin-bottom: 5rem;
+  padding: 1.5625rem 0.9375rem 1.5625rem;
   border-radius: 5%;
   border: 3px solid black;
   transition: all ease-in-out 0.4s;
 }
 
 #search-bar {
-  margin-left: 40px;
+  text-align: left;
 }
 
 .control-label {
-  margin-left: 15px;
+  margin-left: 0.9375rem;
 }
 
 .control-group.form-inline {
-  text-align: right;
+  /* text-align: right; */
 }
 .pokedex-window-scrollbox {
   overflow: scroll;
@@ -213,14 +205,14 @@ h2 {
   height: 100%;
   margin: 0;
   background-color: lightgrey;
-  padding: 0 15px 0 15px;
+  padding: 0 0.9375rem 0 0.9375rem;
 }
 
 /* loading screen */
 .msg-board {
   position: absolute;
   display: flex;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 900;
   max-width: 800px;
   width: 95%;
@@ -234,7 +226,7 @@ h2 {
 }
 
 .pokedex-window-scrollbox::-webkit-scrollbar {
-  width: 11px;
+  width: 0.6875rem;
 }
 .pokedex-window-scrollbox::-webkit-scrollbar-thumb {
   background-color: #818181;
@@ -247,16 +239,15 @@ header {
 }
 
 .logo {
-  height: 100px;
+  height: 6.25rem;
   margin: 0 auto;
-
   text-align: center;
   display: inline;
 }
 
 .form-control {
-  margin: 20px auto;
-  text-align: right;
+  margin: 1.25rem auto;
+  text-align: left !important;
 }
 
 ul {
@@ -273,9 +264,9 @@ ul {
   border: 2px solid black;
   min-width: 400px;
   max-width: 800px;
-  margin-bottom: 25px;
-  padding-left: 45px;
-  padding-right: 45px;
+  margin: 1.5625rem auto;
+  padding-left: 2.8125rem;
+  padding-right: 2.8125rem;
 }
 
 .pokedex-head {
@@ -286,8 +277,8 @@ ul {
 
 .modal-backdrop {
   position: relative;
-  width: 600px;
-  height: 700px;
+  width: 37.5rem;
+  height: 43.75rem;
   background-color: grey;
   z-index: 1000;
 }
@@ -295,9 +286,9 @@ ul {
 .modal-content {
   position: relative;
   width: 95%;
-  height: 445px;
+  height: 27.8125rem;
   margin-left: 5%;
-  margin-top: -5px;
+  margin-top: -0.3125rem;
   z-index: 2000;
 }
 
