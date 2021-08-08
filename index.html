@@ -46,6 +46,19 @@
       <div class="col"></div>
     </div> <!-- end of row -->
   </div> <!-- end of container -->
+
+<button onclick="toggleCard()" id="cardButton">Show Card</button>
+
+  <div class="card" style="width: 18rem; display: hidden">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+  
     <!-- Modal -->
     <div
       class="modal fade"
@@ -69,12 +82,12 @@
             >
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+          </div> <!-- end of header -->
           <div class="modal-body">
           </div>
-        </div>
-      </div>
-    </div>
+        </div> <!-- end of modal-content -->
+      </div> <!-- end of modal-dialog -->
+     </div> <!-- end of Modal -->
 
     <!-- lets older browsers use promises -->
     <script src="src/js/promise-polyfill.js"></script>
