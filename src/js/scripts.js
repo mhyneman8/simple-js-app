@@ -24,12 +24,77 @@ function getAll() {
   return pokemonList;
 }
 
+// $(document).ready(function () {
+//   $('#card').on('show.bs.card', function () {
+//     var mod = $('.card');
+//     $('.pokedex-window-scrollbox').append(mod);
+//   });
+// })
+
+// display pokemon in modal
+// function showDetails(pokemon) {
+//   loadDetails(pokemon).then(function () {
+//     let cardBody = $('.card-body');
+//     let cardTitle = $('.card-title');
+//     let cardHead = $('.card-header');
+
+//     cardTitle.empty();
+//     cardBody.empty();
+
+//     let createImg = $('<img class="card-img-top img-fluid">');
+//     createImg.attr('src', pokemon.imageUrl);
+
+//     let createName = $('<h1 class="center">' + cap(pokemon.name) + '</h1>');
+
+//     let createHeight = $('<h2>' + 'Height: ' + pokemon.height*10 + ' cm' +'</h2>');
+
+//     let createAbility = $('<h2>' + 'Ability: ' + pokemon.abilities + '</h2>');
+
+//     let createType = $('<h2>' + 'Type: ' + pokemon.types[0] + '</h2>');
+
+
+    // switch to change background with type
+    // let types = pokemon.types[0];
+
+    // $(cardBody).addClass(`${types.toLowerCase()}-bg`);
+    // $(cardHead).addClass(`${types.toLowerCase()}-bg`);
+
+    // $('#close').on('click', function() {
+    //   $(cardHead).removeClass(`${types.toLowerCase()}-bg`);
+    //   $(cardBody).removeClass(`${types.toLowerCase()}-bg`);
+    // });
+    // modalBody.addClass('${types.toLowerCase()-bg}')
+//     cardHead.append(cardTitle);
+
+//     cardTitle.append(createName);
+//     cardBody.append(createImg);
+//     cardBody.append(createType);
+//     cardBody.append(createHeight);
+//     cardBody.append(createAbility);
+//   });
+// }
+
 $(document).ready(function () {
   $('#modal').on('show.bs.modal', function () {
     var mod = $('.modal');
     $('.pokedex-window-scrollbox').append(mod);
   });
 })
+
+// display pokemon in card
+function cardDetails(pokemon) {
+  loadDetails(pokemon).then(function () {
+    let cardBody = $('.card-body');
+    let cardTitle = $('.card-title');
+
+    cardBody.empty();
+    cardTitle.empty();
+
+    let createPokemon = $('<h1 classs="center>' + cap(pokemon.name) + '</h1>');
+
+    cardTitle.append(createPokemon);
+  })
+}
 
 // display pokemon in modal
 function showDetails(pokemon) {
@@ -44,7 +109,7 @@ function showDetails(pokemon) {
     let createImg = $('<img class="modal-img img-fluid">');
     createImg.attr('src', pokemon.imageUrl);
 
-    let createName = $('<h1 class="center">' + cap(pokemon.name) + '</h1>');
+    let createName = $('<h2 class="center">' + cap(pokemon.name) + '</h2>');
 
     let createHeight = $('<h2>' + 'Height: ' + pokemon.height*10 + ' cm' +'</h2>');
 
@@ -132,6 +197,22 @@ function addListItem(pokemon) {
       });
     });
 
+    // pokemon card
+    function toggleCard() {
+      var myCard = document.getElementById('card');
+
+      var cardButton = document.getElementById('cardButton');
+
+      if(displaySetting == 'block') {
+        myCard.style.display = 'none';
+        clockButton.innerHTML = 'Show Card';
+      }
+      else {
+        myCard.style.display = 'block';
+        cardButton.innerHTML = 'Hide Card';
+      }
+    }
+
     //power down
     function powerDown() {
       let powerButton = $('.header-powerbtn');
@@ -203,6 +284,7 @@ return {
   loadList: loadList,
   loadDetails: loadDetails,
   showDetails: showDetails,
+  cardDetails: cardDetails,
   powerDown: powerDown,
   hideLoading: hideLoading
 };
