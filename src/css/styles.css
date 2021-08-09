@@ -54,13 +54,21 @@ h2 {
     width: 100%;
 }
 
-.modal-header {
+.card-header {
   display: inline-block;
 }
 
-.modal-img {
+/* .modal-header {
+  display: inline-block;
+} */
+
+.card-img {
   height: 7.875rem;
 }
+
+/* .modal-img {
+  height: 7.875rem;
+} */
 
 .header-powerbtn {
   background: url("../src/img/power.png");
@@ -92,23 +100,44 @@ h2 {
   z-index: 4000;
 }
 
-.modal-foreground.visible::-webkit-scrollbar {
+.card-foreground.visible::-webkit-scrollbar {
   width: 0.625rem;
-
 }
-.modal-foreground.visible::-webkit-scrollbar-track {
+
+/* .modal-foreground.visible::-webkit-scrollbar {
+  width: 0.625rem;
+} */
+
+.card-foreground.visible::-webkit-scrollbar-track {
   background: #f1f1f1;
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
-.modal-foreground.visible::-webkit-scrollbar-thumb {
+/* .modal-foreground.visible::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+} */
+
+.card-foreground.visible::-webkit-scrollbar-thumb {
   background: #888;
   height: 1.25rem;
   border-radius: 0.625rem;
 }
-.modal-foreground.visible::-webkit-scrollbar-thumb:hover {
+
+/* .modal-foreground.visible::-webkit-scrollbar-thumb {
+  background: #888;
+  height: 1.25rem;
+  border-radius: 0.625rem;
+} */
+
+.card-foreground.visible::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* .modal-foreground.visible::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
 
 /* modal background color */
 .fire-bg,
@@ -275,7 +304,7 @@ ul {
   text-align: center;
 }
 
-.modal-backdrop {
+.card-backdrop {
   position: relative;
   width: 37.5rem;
   height: 43.75rem;
@@ -283,7 +312,15 @@ ul {
   z-index: 1000;
 }
 
-.modal-content {
+/* .modal-backdrop {
+  position: relative;
+  width: 37.5rem;
+  height: 43.75rem;
+  background-color: grey;
+  z-index: 1000;
+} */
+
+.card-content {
   position: relative;
   width: 95%;
   height: 27.8125rem;
@@ -292,17 +329,44 @@ ul {
   z-index: 2000;
 }
 
+/* .modal-content {
+  position: relative;
+  width: 95%;
+  height: 27.8125rem;
+  margin-left: 5%;
+  margin-top: -0.3125rem;
+  z-index: 2000;
+} */
+
 .btn-lg {
   width: 35%;
   min-width: 130px;
   text-align: center;
 }
 
-.modal-open {
+.card-open {
   overflow: scroll;
 }
 
-.modal {
+/* .modal-open {
+  overflow: scroll;
+} */
+
+.card {
+  /* display: none !important; */
+  z-index: inherit !important;
+  position: absolute !important;
+  margin: 0 auto;
+  padding: 0;
+  
+}
+#card {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* .modal {
   z-index: inherit !important;
   position: absolute !important;
   margin: 0 auto;
@@ -312,4 +376,4 @@ ul {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
+} */
