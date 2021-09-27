@@ -64,3 +64,9 @@ This app was developed as a front-end client for an external public API that pro
 | Navy | ![#003a70](https://via.placeholder.com/10/003a70?text=+) #003a70 |
 | Red | ![#cc0000](https://via.placeholder.com/10/cc0000?text=+) #cc0000 |
 
+
+## Deployment
+
+To deploy this project, visit https://mhyneman8.github.io/simple-js-app/
+
+  
