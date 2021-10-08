@@ -65,16 +65,16 @@ h2 {
   display: inline-block;
 }
 
-.card-header {
-  display: inline-block;
+/* .card-header {
+  display: inline-block; */
+/* } */
+.modal-img {
+  height: 7.875rem;
 }
-/* .modal-img {
+
+/* .card-img {
   height: 7.875rem;
 } */
-
-.card-img {
-  height: 7.875rem;
-}
 
 .header-powerbtn {
   background: url("../src/img/power.png");
@@ -118,43 +118,43 @@ h2 {
   }
 }
 
-.card-foreground.visible::-webkit-scrollbar {
-  width: 0.625rem;
-}
-
-/* .modal-foreground.visible::-webkit-scrollbar {
+/* .card-foreground.visible::-webkit-scrollbar {
   width: 0.625rem;
 } */
 
-
-.card-foreground.visible::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+.modal-foreground.visible::-webkit-scrollbar {
+  width: 0.625rem;
 }
-/* .modal-foreground.visible::-webkit-scrollbar-track {
+
+
+/* .card-foreground.visible::-webkit-scrollbar-track {
   background: #f1f1f1;
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 } */
-
-.card-foreground.visible::-webkit-scrollbar-thumb {
-  background: #888;
-  height: 1.25rem;
-  border-radius: 0.625rem;
+.modal-foreground.visible::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
-/* .modal-foreground.visible::-webkit-scrollbar-thumb {
+
+/* .card-foreground.visible::-webkit-scrollbar-thumb {
   background: #888;
   height: 1.25rem;
   border-radius: 0.625rem;
 } */
-
-.card-foreground.visible::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.modal-foreground.visible::-webkit-scrollbar-thumb {
+  background: #888;
+  height: 1.25rem;
+  border-radius: 0.625rem;
 }
-/* .modal-foreground.visible::-webkit-scrollbar-thumb:hover {
+
+/* .card-foreground.visible::-webkit-scrollbar-thumb:hover {
   background: #555;
 } */
+.modal-foreground.visible::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 /* modal background color */
 .fire-bg,
@@ -349,30 +349,22 @@ ul {
   text-align: center;
 }
 
-.card-backdrop {
-  position: relative;
-  width: 37.5rem;
-  height: 43.75rem;
-  background-color: grey;
-  z-index: 1000;
-}
-/* .modal-backdrop {
+/* .card-backdrop {
   position: relative;
   width: 37.5rem;
   height: 43.75rem;
   background-color: grey;
   z-index: 1000;
 } */
+.modal-backdrop {
+  position: relative;
+  width: 37.5rem;
+  height: 43.75rem;
+  background-color: grey;
+  z-index: 1000;
+}
 
-.card-content {
-  position: relative;
-  width: 95%;
-  height: 27.8125rem;
-  margin-left: 5%;
-  margin-top: -0.3125rem;
-  z-index: 2000;
-}
-/* .modal-content {
+/* .card-content {
   position: relative;
   width: 95%;
   height: 27.8125rem;
@@ -380,6 +372,14 @@ ul {
   margin-top: -0.3125rem;
   z-index: 2000;
 } */
+.modal-content {
+  position: relative;
+  width: 95%;
+  height: 27.8125rem;
+  margin-left: 5%;
+  margin-top: -0.3125rem;
+  z-index: 2000;
+}
 
 .btn-lg {
   width: 35%;
@@ -399,27 +399,29 @@ ul {
     background-color: var(--navy);
 }
 
-.card-open {
-  overflow: scroll;
-}
-/* .modal-open {
+/* .card-open {
   overflow: scroll;
 } */
+.modal-open {
+  overflow: scroll;
+}
 
-.card {
+/* .card {
   display: none !important;
   z-index: 3 !important;
   position: relative !important;
   margin: 0 auto;
   padding: 0;
-  background-color: black;
-}
-#card {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+} */
+/* #card {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-/* .modal {
+} */
+.modal {
   z-index: inherit !important;
   position: absolute !important;
   margin: 0 auto;
@@ -430,4 +432,4 @@ ul {
   width: 100%;
   height: 100%;
   overflow: hidden;
-} */
+}
