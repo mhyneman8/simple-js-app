@@ -12,9 +12,14 @@
 
 body {
   position: absolute;
-  background-color: var(--blue);
+  background: url('../src/img/forestBackground.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background-color: var(--blue); */
   color: #ffcb05;
-  border: 10px solid var(--yellow);
+  /* border: 10px solid var(--yellow); */
   width: 100%;
 
 }
@@ -60,7 +65,14 @@ h2 {
   display: inline-block;
 }
 
-.modal-img {
+.card-header {
+  display: inline-block;
+}
+/* .modal-img {
+  height: 7.875rem;
+} */
+
+.card-img {
   height: 7.875rem;
 }
 
@@ -93,27 +105,56 @@ h2 {
   border-radius: 35px;
   background-color: #696666;
   z-index: 4000;
+  animation: off;
+  animation-timing-function: ease-in;
 }
 
-.modal-foreground.visible::-webkit-scrollbar {
+@keyframes off {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.card-foreground.visible::-webkit-scrollbar {
   width: 0.625rem;
 }
 
-.modal-foreground.visible::-webkit-scrollbar-track {
+/* .modal-foreground.visible::-webkit-scrollbar {
+  width: 0.625rem;
+} */
+
+
+.card-foreground.visible::-webkit-scrollbar-track {
   background: #f1f1f1;
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
+/* .modal-foreground.visible::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+} */
 
-.modal-foreground.visible::-webkit-scrollbar-thumb {
+.card-foreground.visible::-webkit-scrollbar-thumb {
   background: #888;
   height: 1.25rem;
   border-radius: 0.625rem;
 }
+/* .modal-foreground.visible::-webkit-scrollbar-thumb {
+  background: #888;
+  height: 1.25rem;
+  border-radius: 0.625rem;
+} */
 
-.modal-foreground.visible::-webkit-scrollbar-thumb:hover {
+.card-foreground.visible::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+/* .modal-foreground.visible::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
 
 /* modal background color */
 .fire-bg,
@@ -206,9 +247,9 @@ h2 {
     margin: 0 auto;
 }
 
-.control-group.form-inline {
-  /* text-align: right; */
-}
+/* .control-group.form-inline {
+  text-align: right;
+} */
 .pokedex-window-scrollbox {
   overflow: scroll;
   max-width: 800px;
@@ -284,6 +325,22 @@ ul {
   margin: 1.5625rem auto;
   padding-left: 2.8125rem;
   padding-right: 2.8125rem;
+  animation-name: openDex;
+  animation-duration: 4s;
+}
+
+@keyframes openDex {
+  0%  { 
+    top:800px;
+    }
+  25% {
+    top:800px;
+    transform: rotateX(100deg)
+  }
+  100% {
+    top:0px;
+    transform: rotateX(0deg)
+  }
 }
 
 .pokedex-head {
@@ -292,15 +349,22 @@ ul {
   text-align: center;
 }
 
-.modal-backdrop {
+.card-backdrop {
   position: relative;
   width: 37.5rem;
   height: 43.75rem;
   background-color: grey;
   z-index: 1000;
 }
+/* .modal-backdrop {
+  position: relative;
+  width: 37.5rem;
+  height: 43.75rem;
+  background-color: grey;
+  z-index: 1000;
+} */
 
-.modal-content {
+.card-content {
   position: relative;
   width: 95%;
   height: 27.8125rem;
@@ -308,12 +372,22 @@ ul {
   margin-top: -0.3125rem;
   z-index: 2000;
 }
+/* .modal-content {
+  position: relative;
+  width: 95%;
+  height: 27.8125rem;
+  margin-left: 5%;
+  margin-top: -0.3125rem;
+  z-index: 2000;
+} */
 
 .btn-lg {
   width: 35%;
   min-width: 140px;
   text-align: center;
 }
+
+
 
 .btn-secondary {
     background-color: var(--yellow);
@@ -325,11 +399,27 @@ ul {
     background-color: var(--navy);
 }
 
-.modal-open {
+.card-open {
   overflow: scroll;
 }
+/* .modal-open {
+  overflow: scroll;
+} */
 
-.modal {
+.card {
+  display: none !important;
+  z-index: 3 !important;
+  position: relative !important;
+  margin: 0 auto;
+  padding: 0;
+  background-color: black;
+}
+#card {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* .modal {
   z-index: inherit !important;
   position: absolute !important;
   margin: 0 auto;
@@ -340,4 +430,4 @@ ul {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
+} */
