@@ -57,6 +57,10 @@ h2 {
   display: block;
 }
 
+#search-bar {
+  text-align: center;
+}
+
 .headImg {
     width: 100%;
 }
@@ -224,27 +228,31 @@ h2 {
   max-width: 800px;
   width: 100%;
   min-width: 300px;
-  height: 55vh;
+  height: 64vh;
   min-height: 150px;
   background-color: #696666;
   margin-bottom: 5rem;
-  padding: 1.5625rem 0.9375rem 1.5625rem;
+  padding: 1.5625rem;
   border-radius: 5%;
   border: 3px solid black;
   transition: all ease-in-out 0.4s;
-}
-
-#search-bar {
-  text-align: center;
 }
 
 /* .control-label {
   margin-left: 0.9375rem;
 } */
 
+label {
+  margin: 0;
+  font-size: 16px;
+}
+
 .controls {
-    text-align: center;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  /* display: inline-block; */
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* .control-group.form-inline {
@@ -255,6 +263,7 @@ h2 {
   max-width: 800px;
   width: 100%;
   min-width: 250px;
+  position: relative;
   height: 100%;
   margin: 0;
   background-color: lightgrey;
@@ -310,8 +319,32 @@ ul {
   list-style-type: none;
 }
 
+.pidgeot {
+  position: absolute;
+  left: -50px;
+  top: -20px;
+  width: 30px;
+  animation-name: flying;
+  animation-duration: 5s;
+}
+
+@keyframes flying {
+  0% {
+    left: 30;
+    top: 100px;
+    width: 90px;
+  }
+  100% {
+    display: none;
+    left: 80%;
+    top: 0px;
+    width: 0px;
+  }
+}
+
 .pokedex {
   display: inline-block;
+  /* display: none; */
   text-align: center;
   border-radius: 10px;
   box-shadow: inset 0 0 15px grey;
@@ -331,7 +364,7 @@ ul {
 
 @keyframes openDex {
   0%  { 
-    top:800px;
+    top: 2100px;
     }
   25% {
     top:800px;
@@ -362,6 +395,7 @@ ul {
   height: 43.75rem;
   background-color: grey;
   z-index: 1000;
+  display: none;
 }
 
 /* .card-content {
@@ -376,9 +410,21 @@ ul {
   position: relative;
   width: 95%;
   height: 27.8125rem;
-  margin-left: 5%;
+  margin-left: 3%;
   margin-top: -0.3125rem;
   z-index: 2000;
+  overflow-x: hidden;
+}
+
+.modal-open.modal {
+  top: -24px;
+}
+
+.modal-body {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
 }
 
 .btn-lg {
@@ -386,8 +432,6 @@ ul {
   min-width: 140px;
   text-align: center;
 }
-
-
 
 .btn-secondary {
     background-color: var(--yellow);
@@ -425,11 +469,12 @@ ul {
   z-index: inherit !important;
   position: absolute !important;
   margin: 0 auto;
+  /* height: 100% !important; */
   padding: 0;
 }
 
 #modal {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }

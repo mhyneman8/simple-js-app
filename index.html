@@ -17,6 +17,7 @@
       
     </header>
     <div class="container-fluid">
+      <img class="pidgeot" src="./src/img/pidgeot.png" alt="pigeot flying">
       <div class="row">
         <div class="col"></div>
         <div class="pokedex col-8">
@@ -32,12 +33,14 @@
                 <!-- <label class="control-label col-1" for="search-bar">Search</label> -->
                 <div class="controls">
                   <input class="form-control " id="search-bar" type="search" placeholder="Search..." name="search" value="" aria-label="search">
+                  
                 </div>
               </div>
             </form>
           </div>
           </div>
           <div class="pokedex-window">
+            <div id="overlay"></div>
             <div class="pokedex-window-scrollbox" id="pokedex">
               <!-- <div class="card" id="card" style="width: 18rem;">
                 <img class="card-img-top" src="" alt="Pokemon image"> -->
@@ -47,7 +50,7 @@
                 <!-- </div>
               </div> end of card --> 
               <ul class="pokemon-list list-group"></ul>
-              <div id="overlay"></div>
+              
             </div>
           </div>
         </div> <!-- end pokedex -->
@@ -70,9 +73,11 @@
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">
-            </h5>
+          <!-- <div class="modal-header"> -->
+            
+          </div> <!-- end of header -->
+          <div class="modal-body">
+            <h5 class="modal-title" id="modalLabel"></h5>
             <button
               type="button"
               class="close"
@@ -82,8 +87,6 @@
             >
               <span aria-hidden="true">&times;</span>
             </button>
-          </div> <!-- end of header -->
-          <div class="modal-body">
           </div>
         </div> <!--  end of modal-content -->
        </div> <!-- end of modal-dialog -->

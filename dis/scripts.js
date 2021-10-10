@@ -23,7 +23,7 @@ const pokemonRepo = (function() {
   
   //returns all pokemon data
   function getAll() {
-    return pokemonList;
+    return pokemonList.sort(byId);
   }
   
   $(document).ready(function () {
@@ -119,7 +119,7 @@ const pokemonRepo = (function() {
     loadDetails(pokemon).then(function () {
       let modalBody = $('.modal-body');
       let modalTitle = $('.modal-title');
-      let modalHead = $('.modal-header');
+      let modalHead = $('.modal-content');
   
       modalTitle.empty();
       modalBody.empty();
@@ -137,19 +137,22 @@ const pokemonRepo = (function() {
   
   
       // switch to change background with type
-      let types = pokemon.types[0];
+      // let types = pokemon.types[0];
   
-      $(modalBody).addClass(`${types.toLowerCase()}-bg`);
-      $(modalHead).addClass(`${types.toLowerCase()}-bg`);
+      // $(modalBody).addClass(`${types.toLowerCase()}-bg`);
+      // $(modalHead).addClass(`${types.toLowerCase()}-bg`);
   
-      $('#close').on('click', function() {
-        $(modalHead).removeClass(`${types.toLowerCase()}-bg`);
-        $(modalBody).removeClass(`${types.toLowerCase()}-bg`);
-      });
+      // $('#close').on('click', function() {
+      //   $(modalHead).removeClass(`${types.toLowerCase()}-bg`);
+      //   $(modalBody).removeClass(`${types.toLowerCase()}-bg`);
+      // });
+
+      // types lowercase for the background image
       // modalBody.addClass('${types.toLowerCase()-bg}')
-      modalHead.append(modalTitle);
+      // modalHead.append(modalTitle);
   
-      modalTitle.append(createName);
+      modalHead.append(modalBody);
+      modalBody.append(createName);
       modalBody.append(createImg);
       modalBody.append(createType);
       modalBody.append(createHeight);
@@ -215,6 +218,11 @@ const pokemonRepo = (function() {
           });
         });
       });
+
+      // filter pokemon by alpha
+      function byId(a, b) {
+        return parseInt(a.ed, 10) - parseInt(b.id, 10);
+      }
   
       //power down
       function powerDown() {
