@@ -228,7 +228,7 @@ h2 {
   max-width: 800px;
   width: 100%;
   min-width: 300px;
-  height: 64vh;
+  height: 62vh;
   min-height: 150px;
   background-color: #696666;
   margin-bottom: 5rem;
@@ -248,11 +248,20 @@ label {
 }
 
 .controls {
-  display: flex;
-  flex-direction: row;
+  
   /* display: inline-block; */
   text-align: center;
   margin: 0 auto;
+}
+
+.filter {
+  display: inline-block;
+  display: flex;
+  flex-direction: row;
+}
+
+.radio {
+  margin: 18px 4px 4px 22px;
 }
 
 /* .control-group.form-inline {

@@ -23,8 +23,29 @@ const pokemonRepo = (function() {
   
   //returns all pokemon data
   function getAll() {
-    return pokemonList.sort(byId);
+    return pokemonList;
+    // return pokemonList.sort(byId);
   }
+
+  //  function getAll(sortBy) {
+       
+  //           switch(sortBy) {
+  //             case 'type':
+  //               console.log('type');
+  //               return pokemonList;
+  
+  //             case 'evolution':
+  //               console.log('evolution');
+  //               return pokemonList;
+              
+  //             case 'number':
+  //               console.log('number');
+  //                 return pokemonList;
+                
+  //             default:
+  //               console.log('default');
+  //           }
+  //         }
   
   $(document).ready(function () {
     $('#modal').on('show.bs.modal', function () {
@@ -33,61 +54,6 @@ const pokemonRepo = (function() {
     });
   })
   
-  // display pokemon in card
-  // function showDetails(pokemon) {
-  //   loadDetails(pokemon).then(function () {
-  //     let card = $('.card');
-  //     let cardBody = $('.card-body');
-  //     let cardTitle = $('.card-title');
-  //     let screen = $('.pokedex-window');
-  
-      // Clear existing content
-  //     cardTitle.empty();
-  //     cardBody.empty();
-  
-  //     cardTitle.text(cap(pokemon.name));
-  
-  //     let cardImg = $("card-img-top");
-  //     cardImg.attr('src', pokemon.imageUrl);
-  
-      // let createName = $('<h1 class="center">' + cap(pokemon.name) + '</h1>');
-  
-      // let createHeight = $('<h2>' + 'Height: ' + pokemon.height*10 + ' cm' +'</h2>');
-  
-      // let createAbility = $('<h2>' + 'Ability: ' + pokemon.abilities + '</h2>');
-  
-      // let createType = $('<h2>' + 'Type: ' + pokemon.types[0] + '</h2>');
-  
-  
-      // switch to change background with type
-      // let types = pokemon.types[0];
-  
-      // $(cardBody).addClass(`${types.toLowerCase()}-bg`);
-      // $(cardHead).addClass(`${types.toLowerCase()}-bg`);
-  
-      // $('#close').on('click', function() {
-      //   $(cardHead).removeClass(`${types.toLowerCase()}-bg`);
-      //   $(cardBody).removeClass(`${types.toLowerCase()}-bg`);
-      // });
-      // modalBody.addClass('${types.toLowerCase()-bg}')
-      // cardHead.append(cardTitle);
-  
-      // cardTitle.append(createName);
-      // cardBody.append(cardImg);
-      // cardBody.append(createName);
-      // cardBody.append(createType);
-      // cardBody.append(createHeight);
-      // cardBody.append(createAbility);
-      // screen.append(cardBody);
-  //   });
-  // }
-
-  // $(document).ready(function () {
-  //   $('#card').on('show.bs.card', function () {
-  //     var card = $('.card');
-  //     $('.pokedex-window-scrollbox').append(card);
-  //   })
-  // })
   
   // $(document).ready(function () {
   //   $('#modal').on('show.bs.modal', function () {
@@ -96,23 +62,6 @@ const pokemonRepo = (function() {
   //   });
   // })
   
-  // display pokemon list in screen
-  // function cardDetails(pokemon) {
-  //   loadDetails(pokemon)
-  //   .then(function () {
-
-  //     // doesn't seem to be needed
-  //     let cardBody = $('.card-body');
-  //     let cardTitle = $('.card-title');
-  
-  //     cardBody.empty();
-  //     cardTitle.empty();
-  
-  //     let createPokemon = $('<h1 classs="center>' + cap(pokemon.name) + '</h1>');
-  
-  //     cardTitle.append(createPokemon);
-  //   })
-  // }
   
   // display pokemon in modal
   function showDetails(pokemon) {
@@ -219,10 +168,61 @@ const pokemonRepo = (function() {
         });
       });
 
+      // filter pokemon by ID
+      // function byId(a, b) {
+      //   return parseInt(a.ed, 10) - parseInt(b.id, 10);
+      // }
+
+      // function byEvolution(a, b) {
+      //   return parseInt(a.ed, 10) - parseInt(b.id, 10)
+      // }
+
+      // function byType(a, b) {
+      //   return parseInt(a.ed, 10) - parseInt(b.id, 10);
+      // }
+
       // filter pokemon by alpha
-      function byId(a, b) {
-        return parseInt(a.ed, 10) - parseInt(b.id, 10);
-      }
+      // const btn = document.querySelector('#type');
+      // handle button click
+      // btn.onclick = function () {
+      //   const rbs = document.querySelectorAll('input[name="filter"]');
+      //   let selectedValue;
+      //   for (const rb of rbs) {
+      //     if (rb.checked) {
+      //       selectedValue = rb.value;
+      //       break;
+      //     }
+      //   }
+      //   alert(selectedValue);
+      // };
+
+      // function getAll() {
+      function filterPokemon(value) {
+        value=this.value
+        // var rad = document.filterOptions.filter;
+        // for(var i=0; i<rad.length; i++) {
+          // if(rad[i].checked) {
+            // switch(rad[i].value) {
+              switch(value){
+              case 'type':
+                console.log('type');
+                return pokemonList;
+                
+              case 'evolution':
+                console.log('evolution');
+                return pokemonList;
+
+              case 'number':
+                console.log('number');
+                  return pokemonList.sort(byId);
+                
+              default:
+                console.log('default');
+                return pokemonList
+            }
+          }
+    //     }
+    // }
   
       //power down
       function powerDown() {
@@ -296,9 +296,9 @@ const pokemonRepo = (function() {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    // cardDetails: cardDetails,
     powerDown: powerDown,
     hideLoading: hideLoading,
+    filterPokemon: filterPokemon,
   };
   })();
   
@@ -310,4 +310,5 @@ const pokemonRepo = (function() {
   });
   
   pokemonRepo.powerDown();
+  pokemonRepo.filterPokemon(value);
   

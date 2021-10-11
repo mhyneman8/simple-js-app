@@ -33,6 +33,19 @@
                 <!-- <label class="control-label col-1" for="search-bar">Search</label> -->
                 <div class="controls">
                   <input class="form-control " id="search-bar" type="search" placeholder="Search..." name="search" value="" aria-label="search">
+                  <div class="filter">
+                    <form name="filterOptions">
+                    <p>Filter By: </p>
+                    <input type="radio" id="type" name="filter" value="type" class="radio" onclick="filterPokemon(this.value);">
+                    <label for="type">Type</label>
+
+                    <input type="radio" id="evolution" name="filter" value="evolution" class="radio" onclick="filterPokemon(this.value);">
+                    <label for="evolution">Evolution</label>
+                    
+                    <input type="radio" id="number" name="filter" value="number" class="radio" checked onclick="filterPokemon(this.value);">
+                    <label for="number">ID</label>
+                  </form>
+                  </div>
                   
                 </div>
               </div>
