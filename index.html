@@ -20,38 +20,52 @@
       <img class="pidgeot" src="./src/img/pidgeot.png" alt="pigeot flying">
       <div class="row">
         <div class="col"></div>
-        <div class="pokedex col-8">
-          <div class="header-powerbtn"></div>
+        <div class="pokedex">
+          <div >
+            <button class="header-powerbtn" data-toggle="modal" data-target="powerModal"></button>
+            <!-- <input type="image" src="./src/img/power.svg" data-toggle="modal" data-target="powerModal"/> -->
+          </div>
           <div class="pokedex-head">
             <h1 class="display-4">
               Pokedex
             </h1>
             <div class="row search">
 
-            <form class="form-horizontal">
-              <div class="control-group form-inline text">
-                <!-- <label class="control-label col-1" for="search-bar">Search</label> -->
-                <div class="controls">
-                  <input class="form-control " id="search-bar" type="search" placeholder="Search..." name="search" value="" aria-label="search">
-                  <div class="filter">
-                    <form name="filterOptions">
-                    <p>Filter By: </p>
-                    <input type="radio" id="type" name="filter" value="type" class="radio" onclick="filterPokemon(this.value);">
-                    <label for="type">Type</label>
+              <form class="form-horizontal">
+                <div class="control-group form-inline text">
+                  <!-- <label class="control-label col-1" for="search-bar">Search</label> -->
+                  <div class="controls">
+                    <input class="form-control " id="search-bar" type="search" placeholder="Search..." name="search" value="" aria-label="search">
+                    <div class="filter">
+                      <form name="filterOptions">
+                        <p>Filter By: </p>
+                        <input type="radio" id="type" name="filter" value="type" class="radio" onclick="pokemonRepo.filterPokemon(this.value);">
+                        <label for="type">Type</label>
 
-                    <input type="radio" id="evolution" name="filter" value="evolution" class="radio" onclick="filterPokemon(this.value);">
-                    <label for="evolution">Evolution</label>
+                        <input type="radio" id="evolution" name="filter" value="evolution" class="radio" onclick="pokemonRepo.filterPokemon(this.value);">
+                        <label for="evolution">Evolution</label>
+                        
+                        <input type="radio" id="number" name="filter" value="number" class="radio" checked onclick="pokemonRepo.filterPokemon(this.value);">
+                        <label for="number">ID</label>
+                      </form> <!-- end of filterOptions -->
+                    </div> <!-- end of filter-->
+
+                    <div class="filter-dropdown">
+                      <button class="btn btn-secondary btn-sm dropdown-toggle filter-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Type</a>
+                        <a class="dropdown-item" href="#">Evolution</a>
+                        <a class="dropdown-item" href="#">ID</a>
+                      </div> <!-- end of dropdown-menu -->
+                    </div> <!-- end of filter-dropdown -->
                     
-                    <input type="radio" id="number" name="filter" value="number" class="radio" checked onclick="filterPokemon(this.value);">
-                    <label for="number">ID</label>
-                  </form>
-                  </div>
-                  
-                </div>
-              </div>
-            </form>
-          </div>
-          </div>
+                  </div> <!-- end of controls -->
+                </div> <!-- end of control-group -->
+              </form>
+            </div> <!-- end of row search -->
+          </div> <!-- end of pokedex-head -->
           <div class="pokedex-window">
             <div id="overlay"></div>
             <div class="pokedex-window-scrollbox" id="pokedex">
@@ -64,8 +78,8 @@
               </div> end of card --> 
               <ul class="pokemon-list list-group"></ul>
               
-            </div>
-          </div>
+            </div> <!-- end of pokedex-window-scrollbox -->
+          </div> <!-- end of pokedex-window -->
         </div> <!-- end pokedex -->
       <div class="col"></div>
     </div> <!-- end of row -->
@@ -75,7 +89,7 @@
   
 
   
-    <!-- Modal -->
+    <!-- Pokemon Modal -->
     <div
       class="modal fade"
       id="modal"
@@ -88,7 +102,8 @@
         <div class="modal-content">
           <!-- <div class="modal-header"> -->
             
-          </div> <!-- end of header -->
+          <!-- </div>  -->
+          <!-- end of header -->
           <div class="modal-body">
             <h5 class="modal-title" id="modalLabel"></h5>
             <button
@@ -99,6 +114,46 @@
               aria-label="Close"
             >
               <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div> <!--  end of modal-content -->
+       </div> <!-- end of modal-dialog -->
+      </div> <!-- end of Modal -->
+
+
+    <!-- Power Modal -->
+    <div
+      class="modal fade"
+      id="powerModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="powerModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="powerModalLabel">Power off</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> <!-- end of header -->
+          <div class="modal-body">
+            <h4 >
+              Are you sure you want to power down?
+            </h4>
+          </div> <!-- end of modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary">
+              Power Down
             </button>
           </div>
         </div> <!--  end of modal-content -->
