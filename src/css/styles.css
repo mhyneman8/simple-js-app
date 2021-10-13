@@ -1,3 +1,5 @@
+/* needs to be minified  */
+
 * {box-sizing: border-box;}
 
 :root {
@@ -10,10 +12,14 @@
 
 body {
   position: absolute;
-  background-image: url("https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/masters/forest.jpg");
+  background: url('../src/img/forestBackground.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   /* background-color: var(--blue); */
   color: #ffcb05;
-  border: 10px solid var(--yellow);
+  /* border: 10px solid var(--yellow); */
   width: 100%;
 
 }
@@ -28,8 +34,8 @@ a:hover {
 }
 
 h1 {
-  font-size: 2.1875rem;
-  font-weight: 800;
+  /* font-size: 35px; */
+  font-weight: 700 !important;
   text-align: center;
   background-color: inherit;
   color: white;
@@ -46,46 +52,89 @@ h2 {
   text-align: left;
 }
 
+@media all and (max-width: 576px) {
+  h1 {
+    margin-top: 18px;
+    font-weight: 500 !important;
+    font-size: 50px !important;
+  }
+  .header-powerbtn {
+    width: 35px !important;
+    height: 35px !important;
+    margin-left: -4% !important;
+  }
+  .btn-pokemon {
+    width: 30% !important;
+    font-size: 16px !important;
+  }
+}
+
 .search {
   text-align: center;
   display: block;
+}
+
+#search-bar {
+  text-align: center;
 }
 
 .headImg {
     width: 100%;
 }
 
-.card-header {
+.modal-header {
   display: inline-block;
 }
 
-/* .modal-header {
-  display: inline-block;
-} */
-
-.card-img {
-  height: 7.875rem;
+/* .card-header {
+  display: inline-block; */
+/* } */
+.modal-img {
+  width: 7.875rem;
+  height: auto;
 }
 
-/* .modal-img {
+/* .card-img {
   height: 7.875rem;
 } */
 
 .header-powerbtn {
   background: url("../src/img/power.png");
   background-size: 100% 100%;
-  margin-bottom: 0;
+  border-radius: 50px;
   width: 2.8125rem;
   height: 2.8125rem;
-  margin: 1.5625rem;
+  margin-top: 1.3rem;
+  margin-left: 5%;
   transition: ease-in-out all .4s;
   cursor: pointer;
+  float: left;
+  border: none;
+
 }
 
 .header-powerbtn:hover {
-  /* different image than above */
+  background: url("../src/img/power-yellow.png");
+  background-size: 100% 100%;
+  transition: ease-in-out all .4s;
+  /* background-color: var(--mustard);
+  border-radius: 60px; */
+}
+
+.confirm-dialog {
+  display: none;
+  border-radius: 15px;
+  border: 2px solid black;
+}
+
+.confirm-dialog-button {
+  background-color: var(--yellow);
+  color: var(--navy);
+  border-radius: 10px;
+}
+
+.confirm-dialog-button:hover {
   background-color: var(--mustard);
-  border-radius: 50px;
 }
 
 #overlay {
@@ -99,52 +148,64 @@ h2 {
   border-radius: 35px;
   background-color: #696666;
   z-index: 4000;
+  
+  /* animation: off;
+  animation-timing-function: ease-in; */
 }
 
-.card-foreground.visible::-webkit-scrollbar {
-  width: 0.625rem;
+@keyframes off {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
-/* .modal-foreground.visible::-webkit-scrollbar {
+/* .card-foreground.visible::-webkit-scrollbar {
   width: 0.625rem;
 } */
 
-.card-foreground.visible::-webkit-scrollbar-track {
+.modal-foreground.visible::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+
+/* .card-foreground.visible::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+} */
+.modal-foreground.visible::-webkit-scrollbar-track {
   background: #f1f1f1;
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
-/* .modal-foreground.visible::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-} */
 
-.card-foreground.visible::-webkit-scrollbar-thumb {
+/* .card-foreground.visible::-webkit-scrollbar-thumb {
+  background: #888;
+  height: 1.25rem;
+  border-radius: 0.625rem;
+} */
+.modal-foreground.visible::-webkit-scrollbar-thumb {
   background: #888;
   height: 1.25rem;
   border-radius: 0.625rem;
 }
 
-/* .modal-foreground.visible::-webkit-scrollbar-thumb {
-  background: #888;
-  height: 1.25rem;
-  border-radius: 0.625rem;
+/* .card-foreground.visible::-webkit-scrollbar-thumb:hover {
+  background: #555;
 } */
-
-.card-foreground.visible::-webkit-scrollbar-thumb:hover {
+.modal-foreground.visible::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-/* .modal-foreground.visible::-webkit-scrollbar-thumb:hover {
-  background: #555;
-} */
 
 /* modal background color */
 .fire-bg,
 .fighting-bg {
   background-image: url("..//img/fire.png");
   border: 15px solid var(--mustard);
+  opacity: .5;
 }
 
 .psychic-bg,
@@ -207,27 +268,71 @@ h2 {
   max-width: 800px;
   width: 100%;
   min-width: 300px;
-  height: 55vh;
+  height: 60vh;
   min-height: 150px;
   background-color: #696666;
   margin-bottom: 5rem;
-  padding: 1.5625rem 0.9375rem 1.5625rem;
-  border-radius: 5%;
+  padding: 1.5625rem;
+  border-radius: 25px;
   border: 3px solid black;
   transition: all ease-in-out 0.4s;
 }
 
-#search-bar {
-  text-align: left;
+@media all and (max-width: 586px) {
+  .pokedex-window {
+    height: 60vh;
+  }
 }
 
-/* .control-label {
-  margin-left: 0.9375rem;
-} */
+label {
+  margin: 0;
+  font-size: 16px;
+}
 
 .controls {
+  
+  /* display: inline-block; */
   text-align: center;
   margin: 0 auto;
+}
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0;
+}
+
+.sort-btn {
+  display: none;
+  margin-bottom: 8px;
+  height: 30px;
+  width: 60px;
+  font-size: 14px;
+  padding: 0px;
+  margin: 8px auto;
+}
+
+.radio {
+  margin: 18px 4px 4px 22px;
+}
+
+@media all and (max-width: 576px) {
+  p {
+    font-size: 16px;
+  }
+  label {
+    font-size: 14px;
+  }
+  .radio {
+    margin: 6px 4px 4px 14px;
+    height: 11px;
+  }
+  .sort {
+    display: none;
+  }
+  .sort-btn {
+    display: block;
+  }
 }
 
 /* .control-group.form-inline {
@@ -238,6 +343,7 @@ h2 {
   max-width: 800px;
   width: 100%;
   min-width: 250px;
+  position: relative;
   height: 100%;
   margin: 0;
   background-color: lightgrey;
@@ -285,12 +391,35 @@ header {
 }
 
 .form-control {
-  margin: 1.25rem auto;
+  margin: 0.55rem auto;
   text-align: left !important;
 }
 
 ul {
   list-style-type: none;
+}
+
+.pidgeot {
+  position: absolute;
+  left: -50px;
+  top: -20px;
+  width: 30px;
+  animation-name: flying;
+  animation-duration: 5s;
+}
+
+@keyframes flying {
+  0% {
+    left: 30;
+    top: 100px;
+    width: 90px;
+  }
+  100% {
+    display: none;
+    left: 80%;
+    top: 0px;
+    width: 0px;
+  }
 }
 
 .pokedex {
@@ -301,13 +430,57 @@ ul {
   background-color: var(--red);
   color: black;
   border: 2px solid black;
+  width: 80%;
   min-width: 400px;
   max-width: 600px;
   height: 90vh;
   min-height: 300px;
-  margin: 1.5625rem auto;
+  margin-top: 1.5625rem;
   padding-left: 2.8125rem;
   padding-right: 2.8125rem;
+  animation-name: openDex;
+  animation-duration: 4s;
+}
+
+@media all and (max-width: 480px) {
+  .pokedex {
+    width: 100%
+  }
+}
+
+@keyframes openDex {
+  0%  { 
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 2000px;
+    /* left: 50%; */
+    }
+  25% {
+    /* position: absolute; */
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top:800px;
+    transform: rotateX(100deg)
+  }
+  100% {
+    /* position: absolute; */
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top:0px;
+    transform: rotateX(0deg)
+  }
 }
 
 .pokedex-head {
@@ -316,85 +489,66 @@ ul {
   text-align: center;
 }
 
-.card-backdrop {
+.modal-backdrop {
   position: relative;
   width: 37.5rem;
   height: 43.75rem;
   background-color: grey;
   z-index: 1000;
+  display: none;
 }
 
-/* .modal-backdrop {
-  position: relative;
-  width: 37.5rem;
-  height: 43.75rem;
-  background-color: grey;
-  z-index: 1000;
-} */
-
-.card-content {
+.modal-content {
   position: relative;
   width: 95%;
   height: 27.8125rem;
-  margin-left: 5%;
+  margin-left: 3%;
   margin-top: -0.3125rem;
   z-index: 2000;
+  overflow-x: hidden;
 }
 
-/* .modal-content {
-  position: relative;
-  width: 95%;
-  height: 27.8125rem;
-  margin-left: 5%;
-  margin-top: -0.3125rem;
-  z-index: 2000;
-} */
+.modal-open.modal {
+  top: -24px;
+}
+
+.modal-body {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+}
 
 .btn-lg {
   width: 35%;
-  min-width: 130px;
+  min-width: 140px;
   text-align: center;
 }
 
 .btn-secondary {
-  background-color: var(--yellow);
-  color: var(--navy);
+    background-color: var(--yellow);
+    color: var(--navy);
 }
 
 .btn-secondary:hover {
-  color: var(--yellow);
-  background-color: var(--navy);
+    color: var(--yellow);
+    background-color: var(--navy);
 }
 
-.card-open {
+.modal-open {
   overflow: scroll;
 }
 
-/* .modal-open {
-  overflow: scroll;
-} */
-
-.card {
-  /* display: none !important; */
+.modal {
   z-index: inherit !important;
   position: absolute !important;
   margin: 0 auto;
+  /* height: 100% !important; */
   padding: 0;
-}
-#card {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
-/* .modal {
-  z-index: inherit !important;
-  position: absolute !important;
-  margin: 0 auto;
-  padding: 0;
-}
 #modal {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-} */
+  overflow: scroll;
+}

@@ -1,21 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 /* needs to be minified  */
 
-* {box-sizing: border-box;}
-
-:root {
-  --yellow: #ffcb05;
-  --mustard: #b3a125;
-  --blue: #2a75bb;
-  --navy: #003a70;
-  --red: #cc0000;
-}
+* {-webkit-box-sizing: border-box;box-sizing: border-box;}
 
 body {
   position: absolute;
   background: url('../src/img/forestBackground.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   /* background-color: var(--blue); */
   color: #ffcb05;
@@ -106,6 +102,8 @@ h2 {
   height: 2.8125rem;
   margin-top: 1.3rem;
   margin-left: 5%;
+  -webkit-transition: ease-in-out all .4s;
+  -o-transition: ease-in-out all .4s;
   transition: ease-in-out all .4s;
   cursor: pointer;
   float: left;
@@ -116,6 +114,8 @@ h2 {
 .header-powerbtn:hover {
   background: url("../src/img/power-yellow.png");
   background-size: 100% 100%;
+  -webkit-transition: ease-in-out all .4s;
+  -o-transition: ease-in-out all .4s;
   transition: ease-in-out all .4s;
   /* background-color: var(--mustard);
   border-radius: 60px; */
@@ -128,13 +128,13 @@ h2 {
 }
 
 .confirm-dialog-button {
-  background-color: var(--yellow);
-  color: var(--navy);
+  background-color: #ffcb05;
+  color: #003a70;
   border-radius: 10px;
 }
 
 .confirm-dialog-button:hover {
-  background-color: var(--mustard);
+  background-color: #b3a125;
 }
 
 #overlay {
@@ -151,6 +151,15 @@ h2 {
   
   /* animation: off;
   animation-timing-function: ease-in; */
+}
+
+@-webkit-keyframes off {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes off {
@@ -178,7 +187,8 @@ h2 {
 } */
 .modal-foreground.visible::-webkit-scrollbar-track {
   background: #f1f1f1;
-  box-shadow: inset 0 0 5px grey;
+  -webkit-box-shadow: inset 0 0 5px grey;
+          box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
@@ -201,60 +211,80 @@ h2 {
 }
 
 /* modal background color */
-.fire-bg,
+.fire-bg {
+  background-image: url("..//img/fire.png");
+  border: 15px solid #b3a125;
+  opacity: .5;
+}
 .fighting-bg {
   background-image: url("..//img/fire.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
   opacity: .5;
 }
 
-.psychic-bg,
-.ghost-bg {
+.psychic-bg {
   background-image: url("..//img/psychic.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
-.grass-bg,
+.ghost-bg {
+  background-image: url("..//img/psychic.png");
+  border: 15px solid #b3a125;
+}
+
+.grass-bg {
+  background-image: url("..//img/grass.png");
+  border: 15px solid #b3a125;
+}
+
 .bug-bg {
   background-image: url("..//img/grass.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
 .water-bg {
   background-image: url("..//img/water.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
-.normal-bg,
+.normal-bg {
+  background-image: url("..//img/colorless.png");
+  border: 15px solid #b3a125;
+}
+
 .ground-bg {
   background-image: url("..//img/colorless.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
 .electric-bg {
   background-image: url("..//img/electric.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
 .fairy-bg {
   background-image: url("..//img/fairy.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
 .dragon-bg {
   background-image: url("..//img/dragon.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
 .ice-bg {
   background-image: url("..//img/ice.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
-.poison-bg,
+.poison-bg {
+  background-image: url("..//img/poison.png");
+  border: 15px solid #b3a125;
+}
+
 .rock-bg {
   background-image: url("..//img/poison.png");
-  border: 15px solid var(--mustard);
+  border: 15px solid #b3a125;
 }
 
 .form-inline {
@@ -275,6 +305,8 @@ h2 {
   padding: 1.5625rem;
   border-radius: 25px;
   border: 3px solid black;
+  -webkit-transition: all ease-in-out 0.4s;
+  -o-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 }
 
@@ -297,8 +329,13 @@ label {
 }
 
 .sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin-bottom: 0;
 }
 
@@ -355,6 +392,8 @@ label {
   position: absolute;
   top: 0;
   left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 1.5rem;
   font-weight: 900;
@@ -365,8 +404,12 @@ label {
   height: 95%;
   margin: 0;
   background-color: #696666;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   z-index: 5;
 }
 
@@ -404,8 +447,24 @@ ul {
   left: -50px;
   top: -20px;
   width: 30px;
-  animation-name: flying;
-  animation-duration: 5s;
+  -webkit-animation-name: flying;
+          animation-name: flying;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+}
+
+@-webkit-keyframes flying {
+  0% {
+    left: 30;
+    top: 100px;
+    width: 90px;
+  }
+  100% {
+    display: none;
+    left: 80%;
+    top: 0px;
+    width: 0px;
+  }
 }
 
 @keyframes flying {
@@ -426,8 +485,9 @@ ul {
   display: inline-block;
   text-align: center;
   border-radius: 10px;
-  box-shadow: inset 0 0 15px grey;
-  background-color: var(--red);
+  -webkit-box-shadow: inset 0 0 15px grey;
+          box-shadow: inset 0 0 15px grey;
+  background-color: #cc0000;
   color: black;
   border: 2px solid black;
   width: 80%;
@@ -438,13 +498,52 @@ ul {
   margin-top: 1.5625rem;
   padding-left: 2.8125rem;
   padding-right: 2.8125rem;
-  animation-name: openDex;
-  animation-duration: 4s;
+  -webkit-animation-name: openDex;
+          animation-name: openDex;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
 }
 
 @media all and (max-width: 480px) {
   .pokedex {
     width: 100%
+  }
+}
+
+@-webkit-keyframes openDex {
+  0%  { 
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 2000px;
+    /* left: 50%; */
+    }
+  25% {
+    /* position: absolute; */
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top:800px;
+    -webkit-transform: rotateX(100deg);
+            transform: rotateX(100deg)
+  }
+  100% {
+    /* position: absolute; */
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top:0px;
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg)
   }
 }
 
@@ -468,7 +567,8 @@ ul {
     right: 0;
     text-align: center;
     top:800px;
-    transform: rotateX(100deg)
+    -webkit-transform: rotateX(100deg);
+            transform: rotateX(100deg)
   }
   100% {
     /* position: absolute; */
@@ -479,7 +579,8 @@ ul {
     right: 0;
     text-align: center;
     top:0px;
-    transform: rotateX(0deg)
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg)
   }
 }
 
@@ -526,13 +627,13 @@ ul {
 }
 
 .btn-secondary {
-    background-color: var(--yellow);
-    color: var(--navy);
+    background-color: #ffcb05;
+    color: #003a70;
 }
 
 .btn-secondary:hover {
-    color: var(--yellow);
-    background-color: var(--navy);
+    color: #ffcb05;
+    background-color: #003a70;
 }
 
 .modal-open {
