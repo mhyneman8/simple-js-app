@@ -198,25 +198,39 @@ const pokemonRepo = (function() {
       //   alert(selectedValue);
       // };
 
+  // filter by type
+  // function getTypesList() {
+  //   var typesList = [] 
+  //     for(var i = 0; i < pokemon.length; i++) {
+  //       for (var j =0; j < pokemon[i].types.length; j++) {
+  //         var type = pokemon[i].types[j]
+  //         if(typesList.indexOf(type) === -1) {
+  //           typesList.push(type)
+  //         }
+  //       }
+  //     }
+  //   typesList.sort();
+  //   return typesList;
+  // }
+
+
+
   // function getAll() {
-  function filterPokemon(value) {
-    // value=this.value
-    // var rad = document.filterOptions.filter;
-    // for(var i=0; i<rad.length; i++) {
-      // if(rad[i].checked) {
-        // switch(rad[i].value) {
+  function sortPokemon(value) {
     switch(value){
-    case 'type':
-      console.log('type');
+    case 'alpha':
+      console.log('alpha');
       showLoading();
       hideLoading();
-      return pokemonList;
       
-    case 'evolution':
-      console.log('evolution');
-      showLoading();
-      hideLoading();
-      return pokemonList;
+      pokemonList.sort(function(a, b) {
+        var pokemon = pokemonList.pokemon.name;
+        var textA = a.pokemon.toUpperCase();
+        var textB = b.pokemon.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      });
+
+      // return pokemonList;
 
     case 'number':
       console.log('number');
@@ -229,21 +243,55 @@ const pokemonRepo = (function() {
       return pokemonList
     }
   }
-//     }
-// }
   
   //power down
-  function powerDown() {
-    let powerButton = $('.header-powerbtn');
-    powerButton.on('click', function() {
-      if($('#overlay')[0].style.display === 'none') {
-        if (window.confirm('Are you sure you want to power down?')) {
-          $('#overlay')[0].style.display = 'block';
-      }} else {
-          $('#overlay')[0].style.display = 'none';
+  const dialogButton = document.querySelector(".js-header-powerbtn");
+  const confirmDialog = document.querySelector(".confirm-dialog");
+  const cancelButton = document.querySelector(".cancel-button");
+  const confirmButton = document.querySelector(".confirm-button");
+  const overlay = document.querySelector("#overlay");
+
+  // header powerbtn opens dialog modal
+  dialogButton.addEventListener("click", 
+    function onOpen() {
+      if (typeof confirmDialog.showModal === "function"){
+        if (overlay.style.display === 'block') {
+          overlay.style.display = 'none';
+        } else {
+        confirmDialog.style.display = 'block';
+        confirmDialog.showModal();
+        } 
       }
-    })
-  }
+    }
+  );
+
+  // cancel closes modal
+  cancelButton.addEventListener("click",
+    function () {
+      confirmDialog.style.display = 'none';
+    });
+
+  // confirm adds overlay
+  confirmButton.addEventListener("click",
+    function() {
+      overlay.style.display = 'block';
+      confirmDialog.style.display = 'none';
+    }
+  )
+
+
+  // function powerDown() {
+  //   let powerButton = $('.header-powerbtn');
+    
+  //   powerButton.on('click', function() {
+  //     if($('#overlay')[0].style.display === 'none') {
+  //       if (window.confirm('Are you sure you want to power down?')) {
+  //         $('#overlay')[0].style.display = 'block';
+  //     }} else {
+  //         $('#overlay')[0].style.display = 'none';
+  //     }
+  //   })
+  // }
   
   //load pokemon name and url
   function loadList() {
@@ -304,9 +352,8 @@ const pokemonRepo = (function() {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    powerDown: powerDown,
     hideLoading: hideLoading,
-    filterPokemon: filterPokemon,
+    sortPokemon: sortPokemon,
   };
   })();
   
@@ -318,5 +365,5 @@ const pokemonRepo = (function() {
   });
   
   // pokemonRepo.powerDown();
-  pokemonRepo.filterPokemon(this.value);
+  pokemonRepo.sortPokemon(this.value);
   

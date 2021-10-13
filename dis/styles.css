@@ -121,6 +121,22 @@ h2 {
   border-radius: 60px; */
 }
 
+.confirm-dialog {
+  display: none;
+  border-radius: 15px;
+  border: 2px solid black;
+}
+
+.confirm-dialog-button {
+  background-color: var(--yellow);
+  color: var(--navy);
+  border-radius: 10px;
+}
+
+.confirm-dialog-button:hover {
+  background-color: var(--mustard);
+}
+
 #overlay {
   position: absolute;
   display: none;
@@ -132,8 +148,9 @@ h2 {
   border-radius: 35px;
   background-color: #696666;
   z-index: 4000;
-  animation: off;
-  animation-timing-function: ease-in;
+  
+  /* animation: off;
+  animation-timing-function: ease-in; */
 }
 
 @keyframes off {
@@ -256,7 +273,7 @@ h2 {
   background-color: #696666;
   margin-bottom: 5rem;
   padding: 1.5625rem;
-  border-radius: 5%;
+  border-radius: 25px;
   border: 3px solid black;
   transition: all ease-in-out 0.4s;
 }
@@ -279,13 +296,13 @@ label {
   margin: 0 auto;
 }
 
-.filter {
+.sort {
   display: flex;
   flex-direction: row;
   margin-bottom: 0;
 }
 
-.filter-btn {
+.sort-btn {
   display: none;
   margin-bottom: 8px;
   height: 30px;
@@ -310,10 +327,10 @@ label {
     margin: 6px 4px 4px 14px;
     height: 11px;
   }
-  .filter {
+  .sort {
     display: none;
   }
-  .filter-btn {
+  .sort-btn {
     display: block;
   }
 }
