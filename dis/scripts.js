@@ -23,29 +23,63 @@ const pokemonRepo = (function() {
   
   //returns all pokemon data
   function getAll() {
-    return pokemonList;
-    // return pokemonList.sort(byId);
+      return pokemonList
   }
 
-  //  function getAll(sortBy) {
-       
-  //           switch(sortBy) {
-  //             case 'type':
-  //               console.log('type');
-  //               return pokemonList;
-  
-  //             case 'evolution':
-  //               console.log('evolution');
-  //               return pokemonList;
-              
-  //             case 'number':
-  //               console.log('number');
-  //                 return pokemonList;
-                
-  //             default:
-  //               console.log('default');
-  //           }
-  //         }
+  // function sortPokemon(sortType) {
+
+  //   if (sortType === 'alpha') {
+  //     return pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  //   } else {
+  //     return pokemonList;
+  //   }
+  // }
+    // const alpha = document.querySelector('#alpha');
+
+    // alpha.addEventListener("click",
+    //   function() {
+    //     console.log(alpha);
+        
+    //   }
+    // )
+
+    // if (value === 'alpha') {
+    //   return pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    // } else {
+    //   return pokemonList;
+    // }
+  // }
+
+  // function getAll(value) {
+    function sortPokemon(value) {
+      switch(value){
+      case 'alpha':
+        console.log('alpha');
+        showLoading();
+
+        const alpha = document.querySelector('#alpha');
+
+        alpha.addEventListener('click', function() {
+          return pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
+        })
+        
+         hideLoading();
+        // return getAll();
+        
+        // return pokemonList;
+        break;
+      case 'number':
+        console.log('number');
+        showLoading();
+        hideLoading();
+        return pokemonList;
+        
+      default:
+        console.log('default');
+        return pokemonList
+      }
+    // }
+  }
   
   $(document).ready(function () {
     $('#modal').on('show.bs.modal', function () {
@@ -215,34 +249,7 @@ const pokemonRepo = (function() {
 
 
 
-  // function getAll() {
-  function sortPokemon(value) {
-    switch(value){
-    case 'alpha':
-      console.log('alpha');
-      showLoading();
-      hideLoading();
-      
-      pokemonList.sort(function(a, b) {
-        var pokemon = pokemonList.pokemon.name;
-        var textA = a.pokemon.toUpperCase();
-        var textB = b.pokemon.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      });
-
-      // return pokemonList;
-
-    case 'number':
-      console.log('number');
-      showLoading();
-      hideLoading();
-      return pokemonList;
-      
-    default:
-      console.log('default');
-      return pokemonList
-    }
-  }
+  
   
   //power down
   const dialogButton = document.querySelector(".js-header-powerbtn");
@@ -259,7 +266,7 @@ const pokemonRepo = (function() {
           overlay.style.display = 'none';
         } else {
         confirmDialog.style.display = 'block';
-        confirmDialog.showModal();
+        // confirmDialog.showModal();
         } 
       }
     }
@@ -365,5 +372,6 @@ const pokemonRepo = (function() {
   });
   
   // pokemonRepo.powerDown();
-  pokemonRepo.sortPokemon(this.value);
+  // pokemonRepo.sortPokemon(this.value);
+  // pokemonRepo.getAll();
   

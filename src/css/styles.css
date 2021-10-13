@@ -106,6 +106,7 @@ h2 {
   height: 2.8125rem;
   margin-top: 1.3rem;
   margin-left: 5%;
+  margin-left: -73px;
   transition: ease-in-out all .4s;
   cursor: pointer;
   float: left;
@@ -125,6 +126,9 @@ h2 {
   display: none;
   border-radius: 15px;
   border: 2px solid black;
+  top: 295px;
+  z-index: 2;
+  width: 40%;
 }
 
 .confirm-dialog-button {
