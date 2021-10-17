@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Pokedex App</title>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="dis/styles.css" rel="stylesheet" type="text/css" />
+    <link href="dist/styles.min.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -46,10 +47,10 @@
                     <div class="sort">
                       <form name="sortOptions">
                         <p>Sort By: </p>
-                        <input type="radio" id="alpha" name="sort" value="alpha" class="radio" onclick="pokemonRepo.sortPokemon(this.value)">
+                        <input type="radio" id="alpha" name="sort" value="alpha" class="radio alpha" >
                         <label for="type">Alpha</label>
                         
-                        <input type="radio" id="number" name="sort" value="number" class="radio" checked onclick="pokemonRepo.sortPokemon(this.value);">
+                        <input type="radio" id="number" name="sort" value="number" class="radio number" checked >
                         <label for="number">ID</label>
                       </form> <!-- end of sortOptions -->
                     </div> <!-- end of sort -->
@@ -59,8 +60,11 @@
                         Sort
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Alpha</a>
-                        <a class="dropdown-item" href="#">ID</a>
+                        <input type="radio" id="alpha" name="sort" value="alpha" class="radio alpha" >
+                        <label for="type">Alpha</label>
+                        
+                        <input type="radio" id="number" name="sort" value="number" class="radio number" checked >
+                        <label for="number">ID</label>
                       </div> <!-- end of dropdown-menu -->
                     </div> <!-- end of sort-dropdown -->
                     
@@ -81,10 +85,6 @@
       <div class="col"></div>
     </div> <!-- end of row -->
   </div> <!-- end of container -->
-
- 
-  
-
   
     <!-- Pokemon Modal -->
     <div
@@ -97,12 +97,7 @@
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <!-- <div class="modal-header"> -->
-            
-          <!-- </div>  -->
-          <!-- end of header -->
-          <div class="modal-body">
-            <h5 class="modal-title" id="modalLabel"></h5>
+          <div class="modal-header">
             <button
               type="button"
               class="close"
@@ -112,6 +107,13 @@
             >
               <span aria-hidden="true">&times;</span>
             </button>
+          </div> 
+          <!-- end of header -->
+          <div class="modal-body">
+            
+           <button class="close" id="close"></button>
+            <h5 class="modal-title" id="modalLabel"></h5>
+             
           </div>
         </div> <!--  end of modal-content -->
        </div> <!-- end of modal-dialog -->
@@ -132,7 +134,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
             
-    <script src="dis/scripts.js"></script>
+    <script src="dist/scripts.min.js"></script>
 
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
