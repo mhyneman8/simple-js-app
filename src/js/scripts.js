@@ -27,23 +27,40 @@ const pokemonRepo = (function() {
   }
         
   // function sortPokemon() {
-        const alphaBtn = document.querySelector('.alpha');
-        const idBtn = document.querySelector('.number');
+    // if(document.getElementById('alpha').checked) {
+      // console.log('alpha');
+            // return 
+          // } else if (document.getElementById('number').checked) {
+          //   return pokemonList.sort((a, b) => (a.id > b.id) ? -1 : 1);
+          // }
+       
 
-        alphaBtn.addEventListener('click', function() {
-          showLoading();
-          hideLoading();
-          console.log('alpha');
-          alphaSort = pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
-          return alphaSort;
-        })
+  // const alphaBtn = document.getElementById('alpha');
+  // alphaBtn.addEventListener('click', () => sortAlpha());
 
-        idBtn.addEventListener('click', function() {
-          showLoading();
-          hideLoading();
-          console.log('id');
-          return pokemonList.sort((a, b) => (a.id > b.id) ? 1 : -1);
-        })
+  function sortAlpha() {
+    console.log('alpha');
+    const sortAlpha = pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    pokemonList = sortAlpha;
+  }
+        // const idBtn = document.querySelector('.number');
+
+        // for (var i = 0; i < alphaBtn.length; i++) {}
+        // alphaBtn.addEventListener('click', function() {
+        //   showLoading();
+        //   hideLoading();
+        //   console.log('alpha');
+        //   alphaSort = pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
+        //   return alphaSort;
+        // })
+      //  }
+
+        // idBtn.addEventListener('click', function() {
+        //   showLoading();
+        //   hideLoading();
+        //   console.log('id');
+        //   return pokemonList.sort((a, b) => (a.id > b.id) ? -1 : 1);
+        // })
   // }
         
   
@@ -250,7 +267,7 @@ const pokemonRepo = (function() {
           overlay.style.display = 'none';
         } else {
         confirmDialog.style.display = 'block';
-        confirmDialog.showModal();
+        // confirmDialog.showModal();
         } 
       }
     }
@@ -345,7 +362,7 @@ const pokemonRepo = (function() {
     showDetails: showDetails,
     hideLoading: hideLoading,
     // sortPokemon: sortPokemon,
-   
+    sortAlpha: sortAlpha
   };
   })();
   
