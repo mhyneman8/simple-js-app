@@ -69,4 +69,15 @@ This app was developed as a front-end client for an external public API that pro
 
 To deploy this project, visit https://mhyneman8.github.io/simple-js-app/
 
-  
+## Deployment
+To deploy this project:
+
+Clone this repository
+git clone https://github.com/mhyneman8/simple-js-app.git
+
+Go to root directory
+
+Install dependencies
+npm install
+
+Run by opening index.html in your browser
